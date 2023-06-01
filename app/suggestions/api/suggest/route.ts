@@ -3,10 +3,7 @@ import { NextResponse } from "next/server";
 import qs from "qs";
 import { fetchPerformances } from "../webscraper";
 import { Artist, Performance, TracksResponse } from "../../types";
-
-const clientId = process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID;
-const clientSecret = process.env.NEXT_PRIVATE_SPOTIFY_CLIENT_SECRET;
-const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
+import { clientId, clientSecret, redirectUri } from "./credentials";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -16,7 +13,6 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "No code provided" }, { status: 400 });
 
   const accessToken = await getSpotifyToken(code);
-  console.log("access token: ", accessToken);
 
   if (!accessToken)
     return NextResponse.json(
@@ -25,9 +21,6 @@ export async function GET(request: Request) {
     );
 
   const savedTracksResponse = await getUsersSavedTracks(accessToken);
-
-  console.log("saved tracks: ", savedTracksResponse);
-
   if (savedTracksResponse.length === 0)
     return NextResponse.json({ matches: [] });
 
@@ -38,8 +31,6 @@ export async function GET(request: Request) {
     savedArtists,
     glastonburyPerformances
   );
-
-  console.log("matches: ", matches);
 
   if (matches.length === 0) return NextResponse.json({ matches: [] });
 
@@ -66,7 +57,8 @@ const getSpotifyToken = async (code: string) => {
       },
     });
     return res.data.access_token;
-  } catch {
+  } catch (error) {
+    console.log(error);
     return null;
   }
 };
@@ -104,6 +96,7 @@ const getUsersSavedTracks = async (
       return tracks;
     }
   } catch (error) {
+    console.log(error);
     return [];
   }
 };
