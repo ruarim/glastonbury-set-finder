@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/suggestions/api/webscraperTyped.ts", "app/suggestions/api/webscraper.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/suggestions/api/webscraperTyped.ts", "app/suggestions/api/suggest/utils/webscraper.js"],
   "exclude": ["node_modules"]
 }

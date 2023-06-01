@@ -11,6 +11,7 @@ import Button from "@/components/button";
 import { SuggestionsResponse } from "./types";
 import LoadingSpinner from "@/components/loading";
 import AuthSpotify from "@/components/authSpotify";
+import SpotifyLogo from "@/components/spotifyLogo";
 
 export default function Suggestions() {
   const queryClient = new QueryClient();
@@ -91,7 +92,12 @@ function DisplaySuggestions() {
                       target="_blank"
                       href={suggestion.foundFrom.external_urls.spotify}
                     >
-                      <Button>View on Spotify</Button>
+                      <Button>
+                        <div className="flex gap-1">
+                          <span className="text-center">View on Spotify</span>
+                          <SpotifyLogo />
+                        </div>
+                      </Button>
                     </a>
                   </div>
                 </div>
