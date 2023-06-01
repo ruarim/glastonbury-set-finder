@@ -12,7 +12,7 @@ import { SuggestionsResponse } from "./types";
 import LoadingSpinner from "@/components/loading";
 import AuthSpotify from "@/components/authSpotify";
 
-export default async function Suggestions() {
+export default function Suggestions() {
   const queryClient = new QueryClient();
   return (
     <QueryClientProvider client={queryClient}>
