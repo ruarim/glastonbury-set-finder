@@ -12,8 +12,8 @@ export default function Home() {
           </h1>
 
           <p className="text-center text-lg">
-            Receive personalised Glastonbury set recommendations based on your
-            Spotify liked tracks.
+            Receive personalised Glastonbury performance recommendations based
+            on your Spotify liked tracks.
           </p>
         </div>
       </div>

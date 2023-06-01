@@ -65,7 +65,7 @@ function DisplaySuggestions() {
         <div className="flex justify-center pb-4">
           <LoadingSpinner />
         </div>
-        <span className="text-center font-bold">Analysing saved songs...</span>
+        <span className="text-center font-bold">Analysing liked tracks...</span>
       </div>
     );
 
