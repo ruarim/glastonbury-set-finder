@@ -75,7 +75,7 @@ function DisplaySuggestions() {
       <div className="space-y-5 py-3">
         {suggestions &&
           suggestions.map((suggestion) => (
-            <div className="space-y-2">
+            <div className="space-y-2" key={suggestion.foundFrom.uri}>
               <div>
                 <h2 className="font-bold">{suggestion.performance.title}</h2>
                 <div>{suggestion.performance.stage}</div>
