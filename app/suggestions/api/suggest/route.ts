@@ -19,8 +19,7 @@ export async function GET(request: Request) {
     );
 
   const savedTracks = await getUsersSavedTracks(accessToken);
-  if (savedTracks.length === 0)
-    return NextResponse.json({ matches: [] });
+  if (savedTracks.length === 0) return NextResponse.json({ matches: [] });
 
   const savedArtists = await extractArtistsFromTracks(savedTracks);
   const glastonburyPerformances = (await fetchPerformances()) as Performance[];

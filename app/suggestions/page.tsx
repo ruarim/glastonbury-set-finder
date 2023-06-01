@@ -8,7 +8,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import Button from "@/components/button";
-import { SuggestionsResponse } from "./types";
+import { Suggestion, SuggestionsResponse } from "./types";
 import LoadingSpinner from "@/components/loading";
 import AuthSpotify from "@/components/authSpotify";
 import SpotifyLogo from "@/components/spotifyLogo";
@@ -74,37 +74,44 @@ function DisplaySuggestions() {
     <main className="px-4">
       <h1 className="font-bold text-4xl pt-3">Suggested Performances</h1>
       <div className="space-y-5 py-3">
-        {suggestions &&
-          suggestions.map((suggestion) => (
-            <div className="space-y-2" key={suggestion.foundFrom.uri}>
-              <div>
-                <h2 className="font-bold">{suggestion.performance.title}</h2>
-                <div>{suggestion.performance.stage}</div>
-                <div>{suggestion.performance.day}</div>
-                <div>{suggestion.performance.end}</div>
-              </div>
-              <div>
-                <h2 className="font-bold">Found from artist:</h2>
-                <div className="space-y-1">
-                  <div>{suggestion.foundFrom.name}</div>
-                  <div>
-                    <a
-                      target="_blank"
-                      href={suggestion.foundFrom.external_urls.spotify}
-                    >
-                      <Button>
-                        <div className="flex gap-1">
-                          <span className="text-center">View on Spotify</span>
-                          <SpotifyLogo />
-                        </div>
-                      </Button>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
+        {suggestions && <Results suggestions={suggestions} />}
       </div>
     </main>
   );
 }
+
+const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
+  return (
+    <>
+      {suggestions.map((suggestion) => (
+        <div className="space-y-2" key={suggestion.foundFrom.uri}>
+          <div>
+            <h2 className="font-bold">{suggestion.performance.title}</h2>
+            <div>{suggestion.performance.stage}</div>
+            <div>{suggestion.performance.day}</div>
+            <div>{suggestion.performance.end}</div>
+          </div>
+          <div>
+            <h2 className="font-bold">Found from artist:</h2>
+            <div className="space-y-1">
+              <div>{suggestion.foundFrom.name}</div>
+              <div>
+                <a
+                  target="_blank"
+                  href={suggestion.foundFrom.external_urls.spotify}
+                >
+                  <Button>
+                    <div className="flex gap-1">
+                      <span className="text-center">View on Spotify</span>
+                      <SpotifyLogo />
+                    </div>
+                  </Button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+};
