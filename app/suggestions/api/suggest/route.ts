@@ -16,6 +16,8 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "No code provided" }, { status: 400 });
 
   const accessToken = await getSpotifyToken(code);
+  console.log("access token: ", accessToken);
+
   if (!accessToken)
     return NextResponse.json(
       { error: "Could not get access token" },
@@ -23,6 +25,9 @@ export async function GET(request: Request) {
     );
 
   const savedTracksResponse = await getUsersSavedTracks(accessToken);
+
+  console.log("saved tracks: ", savedTracksResponse);
+
   if (savedTracksResponse.length === 0)
     return NextResponse.json({ matches: [] });
 
@@ -33,6 +38,9 @@ export async function GET(request: Request) {
     savedArtists,
     glastonburyPerformances
   );
+
+  console.log("matches: ", matches);
+
   if (matches.length === 0) return NextResponse.json({ matches: [] });
 
   return NextResponse.json({ matches });
