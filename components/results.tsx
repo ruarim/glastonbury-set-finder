@@ -26,6 +26,13 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
       key={suggestion.foundFrom.id}
     >
       <div className="flex flex-col justify-between h-full">
+        <div className="pb-2">
+          <img
+            className=" max-h-[320px] w-full object-cover"
+            src={artist?.images[0].url}
+          />
+        </div>
+
         <div className="space-y-1">
           <h2>{suggestion.performance.title}</h2>
           <div>
@@ -33,13 +40,6 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
             <div>{suggestion.performance.day}</div>
             <div>{suggestion.performance.end}</div>
           </div>
-        </div>
-
-        <div>
-          <img
-            className=" max-h-[320px] w-full object-cover"
-            src={artist?.images[0].url}
-          />
         </div>
 
         <div>
