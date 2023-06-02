@@ -1,20 +1,11 @@
 import { Suggestion } from "@/app/suggestions/types";
 import Button from "./button";
 import SpotifyLogo from "./spotifyLogo";
-import { useArtist } from "@/hooks/useArtists";
+import { useArtist } from "@/hooks/useArtist";
 
 export const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
-  const artistIds = suggestions.map((suggestion) => suggestion.foundFrom.id);
-  const { data } = useArtist(artistIds);
-
-  console.log(data);
-
-  // const artistsImage = data?.artists.map((artist) => artist.images[1].url);
-
-  // console.log(artistsImage);
-
   return (
-    <div className="grid md:grid-cols-2 grid-rows-auto gap-3">
+    <div className="grid md:grid-cols-2 grid-rows-auto gap-3 md:mx-24">
       {suggestions.map((suggestion) => (
         <ResultCard
           suggestion={suggestion}
@@ -26,6 +17,9 @@ export const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
 };
 
 export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
+  const { data } = useArtist(suggestion.foundFrom.id);
+  const artist = data?.artist;
+
   return (
     <div
       className="flex flex-col border border-gray-500 rounded-lg p-4"
@@ -41,12 +35,12 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
           </div>
         </div>
 
-        {/* <div>
+        <div>
           <img
             className=" max-h-[320px] w-full object-cover"
-            src={artistImage}
+            src={artist?.images[0].url}
           />
-        </div> */}
+        </div>
 
         <div>
           <h2 className="font-bold pt-1">Found from artist..</h2>

@@ -1,5 +1,4 @@
 "use client";
-
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import {
@@ -70,7 +69,7 @@ function DisplaySuggestions() {
     );
 
   return (
-    <main className="grid grid-cols-1 place-items-center  lg:mx-72">
+    <main className="grid grid-cols-1 place-items-center">
       <div className="space-y-5 py-3 w-full">
         {suggestions && <Results suggestions={suggestions} />}
       </div>
