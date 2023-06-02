@@ -1,6 +1,8 @@
 import { TracksResponse } from "@/app/suggestions/types";
 
-export const extractArtistsFromTracks = async (savedTracks: TracksResponse[]) => {
+export const extractArtistsFromTracks = async (
+  savedTracks: TracksResponse[]
+) => {
   const tracks = savedTracks.map((response) => response.track);
 
   const artists = tracks

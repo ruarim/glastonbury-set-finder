@@ -5,12 +5,7 @@ export const searchForArtistMatches = async (
   performances: Performance[]
 ) => {
   const matches = artists.map((artist) => {
-    const regex = new RegExp(`\\b${escapeRegExp(artist.name)}\\b`, "i");
-    const match = performances.find((performance) =>
-      regex.test(performance.title)
-    );
-
-    if (match != null) return { performance: match, foundFrom: artist };
+    return matchArtistToPerformances(artist, performances);
   });
 
   if (matches.length === 0) return [];
@@ -19,6 +14,18 @@ export const searchForArtistMatches = async (
   return filteredMatches;
 };
 
-function escapeRegExp(string: string) {
+const matchArtistToPerformances = (
+  artist: Artist,
+  performances: Performance[]
+) => {
+  const regex = new RegExp(`\\b${escapeRegExp(artist.name)}\\b`, "i");
+  const match = performances.find((performance) =>
+    regex.test(performance.title)
+  );
+
+  if (match != null) return { performance: match, foundFrom: artist };
+};
+
+const escapeRegExp = (string: string) => {
   return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-}
+};

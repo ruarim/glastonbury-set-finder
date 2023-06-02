@@ -6,21 +6,12 @@ export const getUsersSavedTracks = async (
   offset = 0,
   limit = 50
 ) => {
-  const userTracksEndpoint = "https://api.spotify.com/v1/me/tracks";
-  const spotifyUserAuthToken = `Bearer ${accessToken}`;
-
   try {
-    const res = await axios.get(userTracksEndpoint, {
-      headers: {
-        Authorization: spotifyUserAuthToken,
-      },
-      params: {
-        offset: offset,
-        limit: limit,
-      },
-    });
-
-    const tracks: TracksResponse[] = res.data.items;
+    const tracks: TracksResponse[] = await requestTracks(
+      offset,
+      limit,
+      accessToken
+    );
 
     if (tracks.length === limit) {
       const nextOffset = offset + limit;
@@ -33,6 +24,31 @@ export const getUsersSavedTracks = async (
     } else {
       return tracks;
     }
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+
+const requestTracks = async (
+  offset: number,
+  limit: number,
+  accessToken: string
+) => {
+  const url = "https://api.spotify.com/v1/me/tracks";
+  const userAuthToken = `Bearer ${accessToken}`;
+
+  try {
+    const res = await axios.get(url, {
+      headers: {
+        Authorization: userAuthToken,
+      },
+      params: {
+        offset: offset,
+        limit: limit,
+      },
+    });
+    return res.data.items;
   } catch (error) {
     console.log(error);
     return [];
