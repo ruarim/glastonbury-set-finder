@@ -1,17 +1,17 @@
 import { NextResponse } from "next/server";
-import { fetchPerformances } from "./utils/webscraper";
-import { Performance } from "../../types";
+import { getUserToken } from "./requests/getUserToken";
 import { getUsersSavedTracks } from "./requests/getUsersSavedTracks";
-import { getSpotifyToken } from "./requests/getSpotifyToken";
 import { extractArtistsFromTracks } from "./utils/extractArtistsFromTracks";
+import { fetchPerformances } from "./utils/webscraper";
 import { searchForArtistMatches } from "./utils/searchForArtistMatches";
+import { Performance } from "../../types";
 
 export async function GET(request: Request) {
   const code = await getSpotifyCodeFromParams(request.url);
   if (!code || code === "")
     return NextResponse.json({ error: "No code provided" }, { status: 400 });
 
-  const accessToken = await getSpotifyToken(code);
+  const accessToken = await getUserToken(code);
   if (!accessToken)
     return NextResponse.json(
       { error: "Could not get access token" },
@@ -19,6 +19,7 @@ export async function GET(request: Request) {
     );
 
   const savedTracks = await getUsersSavedTracks(accessToken);
+
   if (savedTracks.length === 0) return NextResponse.json({ matches: [] });
 
   const savedArtists = await extractArtistsFromTracks(savedTracks);
@@ -28,7 +29,6 @@ export async function GET(request: Request) {
     savedArtists,
     glastonburyPerformances
   );
-
   if (matches.length === 0) return NextResponse.json({ matches: [] });
 
   return NextResponse.json({ matches });

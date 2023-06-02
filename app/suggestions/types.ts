@@ -7,11 +7,17 @@ export type TracksResponse = {
 };
 
 export type Artist = {
+  id: string;
   name: string;
   external_urls: {
     spotify: string;
   };
   uri: string;
+  href: string;
+};
+
+export type ArtistResponse = {
+  artists: Artist;
 };
 
 export type Performance = {
