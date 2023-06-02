@@ -1,5 +1,4 @@
 "use client";
-
 import axios from "axios";
 import { useSearchParams } from "next/navigation";
 import {
@@ -7,11 +6,10 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
-import Button from "@/components/button";
-import { Suggestion, SuggestionsResponse } from "./types";
+import { SuggestionsResponse } from "./types";
 import LoadingSpinner from "@/components/loading";
 import AuthSpotify from "@/components/authSpotify";
-import SpotifyLogo from "@/components/spotifyLogo";
+import { Results } from "@/components/results";
 
 export default function Suggestions() {
   const queryClient = new QueryClient();
@@ -71,52 +69,10 @@ function DisplaySuggestions() {
     );
 
   return (
-    <main className="grid grid-cols-1 place-items-center lg:mx-72">
-      <div className="space-y-5 py-3">
+    <main className="grid grid-cols-1 place-items-center">
+      <div className="space-y-5 py-3 w-full">
         {suggestions && <Results suggestions={suggestions} />}
       </div>
     </main>
   );
 }
-
-const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
-  return (
-    <div className="grid md:grid-cols-2 grid-rows-auto gap-3">
-      {suggestions.map((suggestion) => (
-        <div
-          className="flex flex-col border border-gray-500 rounded-lg p-4"
-          key={suggestion.foundFrom.uri}
-        >
-          <div className="flex flex-col justify-between h-full">
-            <div className="space-y-1">
-              <h2>{suggestion.performance.title}</h2>
-              <div>
-                <div>{suggestion.performance.stage}</div>
-                <div>{suggestion.performance.day}</div>
-                <div>{suggestion.performance.end}</div>
-              </div>
-            </div>
-
-            <div>
-              <h2 className="font-bold pt-1">Found from artist..</h2>
-              <div className="space-y-3">
-                <div className="pb-1">{suggestion.foundFrom.name}</div>
-                <a
-                  target="_blank"
-                  href={suggestion.foundFrom.external_urls.spotify}
-                >
-                  <Button>
-                    <div className="flex gap-1">
-                      <span className="text-center">View on Spotify</span>
-                      <SpotifyLogo />
-                    </div>
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-};

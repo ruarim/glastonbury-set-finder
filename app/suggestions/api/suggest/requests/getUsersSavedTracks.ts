@@ -35,7 +35,7 @@ const requestTracks = async (
   limit: number,
   accessToken: string
 ) => {
-  const url = "https://api.spotify.com/v1/me/tracks";
+  const url = `${process.env.NEXT_PUBLIC_SPOTIFY_API}/me/tracks`;
   const userAuthToken = `Bearer ${accessToken}`;
 
   try {
