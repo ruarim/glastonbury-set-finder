@@ -4,10 +4,10 @@ import AuthSpotify from "@/components/authSpotify";
 
 export default function Home() {
   return (
-    <main className="space-y-3 md:w-[600px] mx-12">
-      <div className="border border-gray-500 rounded-lg p-12 bg-slate-500/30 ">
+    <main className="space-y-3 md:w-[600px] ">
+      <div className="border border-gray-500 rounded-lg p-8 flex flex-col justify-between space-y-12">
         <div className="space-y-3">
-          <h1 className="font-bold justify-center text-5xl text-center">
+          <h1 className="font-bold justify-center text-5xl text-center pt-3">
             Glasto Finder
           </h1>
 
@@ -16,9 +16,10 @@ export default function Home() {
             on your Spotify liked tracks.
           </p>
         </div>
-      </div>
-      <div className="pt">
-        <AuthSpotify />
+
+        <div className="pt">
+          <AuthSpotify />
+        </div>
       </div>
     </main>
   );
