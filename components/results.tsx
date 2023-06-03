@@ -36,7 +36,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
         )}
 
         <div className="space-y-1">
-          <h2>{suggestion.performance.title}</h2>
+          <h2 className="font-bold">{suggestion.performance.title}</h2>
           <div>
             <div>{suggestion.performance.stage}</div>
             <div>{suggestion.performance.day}</div>
