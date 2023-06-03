@@ -35,13 +35,11 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
           </div>
         )}
 
-        <div className="space-y-1">
+        <div>
           <h2 className="font-bold">{suggestion.performance.title}</h2>
-          <div>
-            <div>{suggestion.performance.stage}</div>
-            <div>{suggestion.performance.day}</div>
-            <div>{suggestion.performance.end}</div>
-          </div>
+          <div>{suggestion.performance.stage}</div>
+          <div>{suggestion.performance.day}</div>
+          <div>{suggestion.performance.end}</div>
         </div>
 
         <div>
