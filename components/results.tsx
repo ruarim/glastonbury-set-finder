@@ -26,7 +26,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
       key={suggestion.foundFrom.id}
     >
       <div className="flex flex-col justify-between h-full">
-        {artist?.images && (
+        {artist?.images && artist?.images[0].url && (
           <div className="pb-2">
             <img
               className=" max-h-[320px] w-full object-cover"
