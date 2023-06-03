@@ -22,7 +22,7 @@ export type Artist = {
 };
 
 export type ArtistResponse = {
-  artists: Artist;
+  artist: Artist;
 };
 
 export type Performance = {
