@@ -14,6 +14,11 @@ export type Artist = {
   };
   uri: string;
   href: string;
+  images?: {
+    url: string;
+    height: number;
+    width: number;
+  }[];
 };
 
 export type ArtistResponse = {

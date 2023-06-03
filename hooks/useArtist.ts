@@ -1,17 +1,6 @@
+import { ArtistResponse } from "@/app/suggestions/types";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
-
-type ArtistResponse = {
-  artist: ArtistImage;
-};
-
-type ArtistImage = {
-  images: {
-    url: string;
-    height: number;
-    width: number;
-  }[];
-};
 
 export const useArtist = (id: string) => {
   return useQuery<any, any, ArtistResponse>({
