@@ -1,4 +1,3 @@
-"use client";
 
 import AuthSpotify from "@/components/authSpotify";
 import SpotifyLogo from "@/components/spotifyLogo";
