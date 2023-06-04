@@ -5,7 +5,7 @@ import { useArtist } from "@/hooks/useArtist";
 
 export const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
   return (
-    <div className="grid md:grid-cols-2 grid-rows-auto gap-3 md:mx-24">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-3 md:mx-24">
       {suggestions.map((suggestion) => (
         <ResultCard
           suggestion={suggestion}
