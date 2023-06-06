@@ -6,7 +6,7 @@ const title = "Glasto Finder";
 const description =
   "Receive personalised Glastonbury performance recommendations based on your Spotify liked tracks.";
 const url = `${process.env.NEXT_PUBLIC_BASE_URL}`;
-const image = "/glastoFinder.svg";
+const image = `${url}/glastoFinder.svg`;
 
 export const metadata: Metadata = {
   title,
