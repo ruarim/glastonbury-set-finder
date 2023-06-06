@@ -2,7 +2,7 @@ import AuthSpotify from "@/components/authSpotify";
 import SpotifyLogo from "@/components/spotifyLogo";
 import { Metadata } from "next";
 
-const title = "Glasto Finder";
+const title = "Glasto-Finder";
 const description =
   "Receive personalised Glastonbury performance recommendations based on your Spotify liked tracks.";
 const url = `${process.env.NEXT_PUBLIC_BASE_URL}`;
