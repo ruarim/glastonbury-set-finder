@@ -9,7 +9,7 @@ export default function Home() {
         title="Glasto Finder"
         description="Receive personalised Glastonbury performance recommendations based on your Spotify liked tracks."
         url={`${process.env.NEXT_PUBLIC_BASE_URL}`}
-        image={"@/public/glastoFinder.png"}
+        image={"@/public/glastoFinder.svg"}
       />
       <div className="border border-gray-500 rounded-lg p-8 flex flex-col justify-between space-y-6">
         <div className="space-y-3">
