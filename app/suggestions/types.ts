@@ -21,8 +21,8 @@ export type Artist = {
   }[];
 };
 
-export type ArtistResponse = {
-  artist: Artist;
+export type ArtistsResponse = {
+  artists: Artist[];
 };
 
 export type Performance = {
