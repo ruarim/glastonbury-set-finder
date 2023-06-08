@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import Button from "./button";
 import { useState } from "react";
 
@@ -11,11 +10,11 @@ const AuthSpotify = () => {
   const [isLoading, setLoading] = useState(false);
 
   return (
-    <Link href={spotifyAuthUrl}>
+    <a href={spotifyAuthUrl}>
       <Button onClick={() => setLoading(true)} disabled={isLoading}>
         {isLoading ? "Loading..." : "Login with Spotify"}
       </Button>
-    </Link>
+    </a>
   );
 };
 

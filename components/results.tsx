@@ -2,6 +2,7 @@ import { Suggestion } from "@/app/suggestions/types";
 import Button from "./button";
 import SpotifyLogo from "./spotifyLogo";
 import { useArtist } from "@/hooks/useArtist";
+import { Skeleton } from "./loading/skeleton";
 
 export const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
   return (
@@ -25,21 +26,23 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
       className="flex flex-col border border-gray-500 rounded-lg p-4"
       key={suggestion.foundFrom.id}
     >
-      <div className="flex flex-col justify-between h-full">
-        {artist?.images && artist?.images.length > 0 && (
-          <div className="pb-2">
+      <div className="flex flex-col justify-between h-full space-y-1">
+        <div className="space-y-1">
+          {artist?.images && artist?.images.length > 0 ? (
             <img
-              className=" max-h-[320px] w-full object-cover"
+              className="h-[320px] w-full object-cover"
               src={artist?.images[0].url}
             />
-          </div>
-        )}
+          ) : (
+            <Skeleton className="h-[320px] bg-gray-700" />
+          )}
 
-        <div>
-          <h2 className="font-bold">{suggestion.performance.title}</h2>
-          <div>{suggestion.performance.stage}</div>
-          <div>{suggestion.performance.day}</div>
-          <div>{suggestion.performance.end}</div>
+          <div>
+            <h2 className="font-bold">{suggestion.performance.title}</h2>
+            <div>{suggestion.performance.stage}</div>
+            <div>{suggestion.performance.day}</div>
+            <div>{suggestion.performance.end}</div>
+          </div>
         </div>
 
         <div>

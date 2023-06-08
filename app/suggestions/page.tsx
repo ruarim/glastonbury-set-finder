@@ -7,7 +7,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import { SuggestionsResponse } from "./types";
-import LoadingSpinner from "@/components/loading";
+import LoadingSpinner from "@/components/loading/spinner";
 import AuthSpotify from "@/components/authSpotify";
 import { Results } from "@/components/results";
 
