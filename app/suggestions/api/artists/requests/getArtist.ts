@@ -1,10 +1,24 @@
-import { ArtistResponse } from "@/app/suggestions/types";
+import { ArtistsResponse } from "@/app/suggestions/types";
 import axios from "axios";
 
-export const getArtist = async (id: string, accessToken: string) => {
-  const artist: ArtistResponse[] = await requestArtist(id, accessToken);
-  if (!artist) return null;
-  return artist;
+export const getArtists = async (
+  ids: string[],
+  accessToken: string,
+  i: number
+) => {
+  try {
+    const artists: ArtistsResponse[] = await requestArtist(ids[i], accessToken);
+
+    if (i < ids.length) {
+      const nextPageArtists: any[] = await getArtists(ids, accessToken, ++i);
+      return [...artists, ...nextPageArtists];
+    } else {
+      return artists;
+    }
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
 };
 
 const requestArtist = async (id: string, accessToken: string) => {
