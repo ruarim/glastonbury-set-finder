@@ -27,7 +27,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
       key={suggestion.foundFrom.id}
     >
       <div className="flex flex-col justify-between h-full space-y-1">
-        <div className="space-y-1">
+        <div className="space-y-2">
           {artist?.images && artist?.images.length > 0 ? (
             <img
               className="h-[320px] w-full object-cover"
