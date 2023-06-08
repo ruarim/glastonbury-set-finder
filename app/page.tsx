@@ -1,6 +1,7 @@
 import AuthSpotify from "@/components/authSpotify";
 import SpotifyLogo from "@/components/spotifyLogo";
 import { Metadata } from "next";
+import { revalidatePath } from "next/cache";
 
 const title = "Glasto-Finder";
 const description =
@@ -28,6 +29,8 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  revalidatePath("/");
+
   return (
     <main className="space-y-3 md:w-[600px] ">
       <div className="border border-gray-500 rounded-lg p-8 flex flex-col justify-between space-y-6">
