@@ -10,7 +10,7 @@ const AuthSpotify = () => {
   const [isLoading, setLoading] = useState(false);
 
   useEffect(() => {
-    return () => setLoading(false);
+    isLoading ? setLoading(false) : null;
   }, []);
 
   return (
