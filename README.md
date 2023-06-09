@@ -1,3 +1,10 @@
+![Glasto-Finder in action](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/b889dfec-39bc-41da-8b92-9795918c2a8f)
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
