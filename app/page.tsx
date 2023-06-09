@@ -1,4 +1,4 @@
-import AuthSpotify from "@/components/authSpotify";
+import AuthSpotify from "@/app/authSpotify";
 import SpotifyLogo from "@/components/spotifyLogo";
 import { Metadata } from "next";
 import { revalidatePath } from "next/cache";

@@ -7,9 +7,9 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import { SuggestionsResponse } from "./types";
-import LoadingSpinner from "@/components/loading/spinner";
-import AuthSpotify from "@/components/authSpotify";
-import { Results } from "@/components/results";
+import AuthSpotify from "@/app/authSpotify";
+import { Results } from "@/app/suggestions/results";
+import { ScaleLoader } from "react-spinners";
 
 export default function Suggestions() {
   const queryClient = new QueryClient();
@@ -62,7 +62,12 @@ function DisplaySuggestions() {
     return (
       <div>
         <div className="flex justify-center pb-4">
-          <LoadingSpinner />
+          <ScaleLoader
+            loading={isLoading}
+            color="white"
+            height={18}
+            width={12}
+          />
         </div>
         <span className="text-center font-bold">Analysing liked tracks...</span>
       </div>
