@@ -1,6 +1,7 @@
-![Glasto-Finder in action](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/b889dfec-39bc-41da-8b92-9795918c2a8f)
+#Glasto-Finder
 
-
+Glasto-Finder in action.
+<iframe width="560" height="315" src="https://github.com/ruarim/glastonbury-set-finder/assets/48099261/b889dfec-39bc-41da-8b92-9795918c2a8f" frameborder="0" allowfullscreen></iframe>
 
 
 
