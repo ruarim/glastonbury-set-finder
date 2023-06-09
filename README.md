@@ -1,4 +1,4 @@
-#Glasto-Finder
+# Glasto-Finder
 
 [![Glasto-Finder in action.](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/02fa31ab-1621-420b-aafd-d63f50b1bf5e)](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/b889dfec-39bc-41da-8b92-9795918c2a8f)
 
