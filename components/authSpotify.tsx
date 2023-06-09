@@ -1,5 +1,4 @@
 "use client";
-import { useState } from "react";
 import Button from "./button";
 import Link from "next/link";
 
@@ -9,13 +8,9 @@ const responseType = "code";
 const spotifyAuthUrl = `https://accounts.spotify.com/en/authorize?response_type=${responseType}&client_id=${clientId}&scope=user-library-read&redirect_uri=${redirectUri}&show_dialog=false`;
 
 const AuthSpotify = () => {
-  const [isLoading, setLoading] = useState(false);
-
   return (
     <Link href={spotifyAuthUrl}>
-      <Button onClick={() => setLoading(true)} disabled={isLoading}>
-        {isLoading ? "Loading..." : "Login with Spotify"}
-      </Button>
+      <Button>Login with Spotify</Button>
     </Link>
   );
 };

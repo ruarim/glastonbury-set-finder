@@ -34,7 +34,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
               src={artist?.images[0].url}
             />
           ) : (
-            <Skeleton className="h-[320px] bg-gray-800" />
+            <Skeleton className="h-[320px] bg-gray-700/50" />
           )}
 
           <div>
