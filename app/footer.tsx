@@ -1,11 +1,11 @@
 const Footer = () => {
   return (
-    <footer className="fixed bottom-0 left-0 right-0 py-3 bg-black text-gray-200 border-t border-gray-500 order-last">
+    <footer className="fixed bottom-0 left-0 right-0 py-2 bg-black text-gray-200 border-t border-gray-500 order-last">
       <div className="container mx-auto">
         <div className="flex flex-wrap">
           <div className="w-full px-4 sm:w-1/2 lg:w-3/12">
             <div className="w-full">
-              <p className="text-base text-body-color space-x-1">
+              <div className="text-sm space-x-1 flex h-full items-center">
                 <span>Built by</span>
                 <a
                   href="https://github.com/ruarim"
@@ -15,7 +15,7 @@ const Footer = () => {
                 >
                   ruarim
                 </a>
-              </p>
+              </div>
             </div>
           </div>
         </div>

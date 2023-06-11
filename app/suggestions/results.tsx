@@ -6,7 +6,7 @@ import { Skeleton } from "./loading/skeleton";
 
 export const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-3 md:mx-24 pb-12">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-3 md:mx-24 pb-9">
       {suggestions.map((suggestion) => (
         <ResultCard
           suggestion={suggestion}
