@@ -56,7 +56,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
               <Button>
                 <div className="flex gap-1">
                   <span className="text-center">View on Spotify</span>
-                  <SpotifyLogo />
+                  {/* <SpotifyLogo /> */}
                 </div>
               </Button>
             </a>

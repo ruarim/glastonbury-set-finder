@@ -11,14 +11,14 @@ export async function GET(request: Request) {
   if (!code || code === "")
     return NextResponse.json({ error: "No code provided" }, { status: 400 });
 
-  const accessToken = await getUserToken(code);
-  if (!accessToken)
+  const token = await getUserToken(code);
+  if (!token)
     return NextResponse.json(
       { error: "Could not get access token" },
       { status: 400 }
     );
 
-  const savedTracks = await getUsersSavedTracks(accessToken);
+  const savedTracks = await getUsersSavedTracks(token);
 
   if (savedTracks.length === 0) return NextResponse.json({ matches: [] });
 
