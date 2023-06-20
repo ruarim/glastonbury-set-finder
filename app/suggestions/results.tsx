@@ -30,7 +30,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
         <div className="space-y-2">
           {artist?.images && artist?.images.length > 0 ? (
             <img
-              className="h-[320px] w-full object-cover"
+              className="h-[320px] w-full object-cover rounded-sm"
               src={artist?.images[0].url}
             />
           ) : (
@@ -56,7 +56,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
               <Button>
                 <div className="flex gap-1">
                   <span className="text-center">View on Spotify</span>
-                  {/* <SpotifyLogo /> */}
+                  <SpotifyLogo />
                 </div>
               </Button>
             </a>
