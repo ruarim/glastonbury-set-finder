@@ -2,8 +2,8 @@ import axios from "axios";
 const cheerio = require("cheerio");
 
 export const fetchPerformances = async () => {
-  const lineUpUrl =
-    "https://www.glastonburyfestivals.co.uk/line-up/line-up-2023/?artist";
+  const lineUpUrl = process.env.NEXT_PUBLIC_LINEUP_URL;
+
   try {
     const response = await axios.get(lineUpUrl);
 
