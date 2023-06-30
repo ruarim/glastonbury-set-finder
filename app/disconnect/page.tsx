@@ -5,7 +5,7 @@ export default function Disconnect() {
     <div className="border border-gray-500 rounded-lg p-8 flex flex-col justify-between space-y-6">
       <div className="grid grid-cols-1 place-items-center space-y-4">
         <div className="space-y-2 rounded-lg">
-          <div className="text-2xl font-bold">To disconnect from this app:</div>
+          <div className="text-2xl font-bold">Disconnect from this app:</div>
           <div>-Click the button below</div>
           <div>
             -Find <span className="font-bold">&apos;Glasto-Finder&apos;</span>{" "}
@@ -21,7 +21,7 @@ export default function Disconnect() {
           href={manageAccessUrl}
           className="w-full text-center border border-gray-200 hover:border-gray-400 hover:text-gray-400 rounded-lg px-4 py-2 text-base font-semibold text-gray-200 transition-colors duration-300 ease-in-out"
         >
-          Disconnect
+          Manage Access
         </a>
       </div>
     </div>

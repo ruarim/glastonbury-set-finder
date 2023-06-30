@@ -1,4 +1,5 @@
 import DisconnectSpotify from "./disconnectSpotify";
+import HomeButton from "./homeButton";
 
 const Footer = () => {
   return (
@@ -21,6 +22,7 @@ const Footer = () => {
             </div>
           </div>
           <DisconnectSpotify />
+          <HomeButton />
         </div>
       </div>
     </footer>

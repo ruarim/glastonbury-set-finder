@@ -3,17 +3,15 @@
 import ButtonLink from "@/components/linkButton";
 import { usePathname } from "next/navigation";
 
-const DisconnectSpotify = () => {
+export default function HomeButton() {
   const pathname = usePathname();
 
   return (
     <ButtonLink
-      url="/disconnect"
-      showOnUrl="/suggestions"
+      url="/"
+      showOnUrl="/disconnect"
       pathname={pathname}
-      label="Disconnect"
+      label="Home"
     />
   );
-};
-
-export default DisconnectSpotify;
+}
