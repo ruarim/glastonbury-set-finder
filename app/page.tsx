@@ -10,7 +10,6 @@ export default function Home() {
           <h1 className="font-bold justify-center text-5xl text-center pt-3">
             <div className="grid grid-cols-1 place-items-center p-2">
               <SpotifyLogo />
-              
             </div>
             {title}
           </h1>
