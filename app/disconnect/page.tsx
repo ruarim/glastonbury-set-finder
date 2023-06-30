@@ -8,10 +8,11 @@ export default function Disconnect() {
           <div className="text-2xl font-bold">To disconnect from this app:</div>
           <div>-Click the button below</div>
           <div>
-            -Find <span className="font-bold">'Glasto-Finder'</span> in the list
+            -Find <span className="font-bold">&apos;Glasto-Finder&apos;</span>{" "}
+            in the list
           </div>
           <div>
-            -Click <span className="font-bold">'Remove Access'</span>
+            -Click <span className="font-bold">&apos;Remove Access&apos;</span>
           </div>
         </div>
         <a
