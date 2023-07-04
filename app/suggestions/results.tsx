@@ -28,14 +28,14 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
     >
       <div className="flex flex-col justify-between h-full space-y-1">
         <div className="space-y-2">
-          {artist?.images && artist?.images.length > 0 ? (
+          {/* {artist?.images && artist?.images.length > 0 ? (
             <img
               className="h-[320px] w-full object-cover rounded-sm"
               src={artist?.images[0].url}
             />
           ) : (
             <Skeleton className="h-[320px] bg-gray-700/50" />
-          )}
+          )} */}
 
           <div>
             <h2 className="font-bold">{suggestion.performance.title}</h2>
