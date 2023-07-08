@@ -1,5 +1,5 @@
-import DisconnectSpotify from "./disconnectSpotify";
-import HomeButton from "./homeButton";
+import DisconnectSpotify from "./disconnect-spotify";
+import HomeButton from "./home-button";
 
 const Footer = () => {
   return (

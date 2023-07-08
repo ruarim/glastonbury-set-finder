@@ -7,7 +7,7 @@ import {
   useQuery,
 } from "@tanstack/react-query";
 import { SuggestionsResponse } from "./types";
-import AuthSpotify from "@/app/authSpotify";
+import AuthSpotify from "@/app/auth-spotify";
 import { Results } from "@/app/suggestions/results";
 import { ScaleLoader } from "react-spinners";
 
