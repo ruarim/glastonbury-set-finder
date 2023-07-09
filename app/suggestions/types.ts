@@ -29,7 +29,7 @@ export type Performance = {
   title: string;
   stage: string;
   day: string;
-  end: string;
+  time: string;
 };
 
 export type Suggestion = {

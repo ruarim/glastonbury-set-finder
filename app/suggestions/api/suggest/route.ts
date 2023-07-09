@@ -2,9 +2,8 @@ import { NextResponse } from "next/server";
 import { getUserToken } from "./requests/getUserToken";
 import { getUsersSavedTracks } from "./requests/getUsersSavedTracks";
 import { extractArtistsFromTracks } from "./utils/extractArtistsFromTracks";
-import { fetchPerformances } from "./utils/webscraper";
 import { searchForArtistMatches } from "./utils/searchForArtistMatches";
-import { Performance } from "../../types";
+import { prisma } from "@/utils/prisma";
 
 export async function GET(request: Request) {
   const code = await getSpotifyCodeFromParams(request.url);
@@ -23,7 +22,8 @@ export async function GET(request: Request) {
   if (savedTracks.length === 0) return NextResponse.json({ matches: [] });
 
   const savedArtists = await extractArtistsFromTracks(savedTracks);
-  const glastonburyPerformances = (await fetchPerformances()) as Performance[];
+
+  const glastonburyPerformances = await prisma.performance.findMany();
 
   const matches = await searchForArtistMatches(
     savedArtists,

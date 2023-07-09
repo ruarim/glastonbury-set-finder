@@ -10,7 +10,7 @@ export const Results = ({ suggestions }: { suggestions: Suggestion[] }) => {
       {suggestions.map((suggestion) => (
         <ResultCard
           suggestion={suggestion}
-          key={suggestion.performance.end + suggestion.performance.stage}
+          key={suggestion.performance.time + suggestion.performance.stage}
         />
       ))}
     </div>
@@ -41,7 +41,7 @@ export const ResultCard = ({ suggestion }: { suggestion: Suggestion }) => {
             <h2 className="font-bold">{suggestion.performance.title}</h2>
             <div>{suggestion.performance.stage}</div>
             <div>{suggestion.performance.day}</div>
-            <div>{suggestion.performance.end}</div>
+            <div>{suggestion.performance.time}</div>
           </div>
         </div>
 

@@ -1,4 +1,5 @@
-import { Artist, Performance } from "@/app/suggestions/types";
+import { Artist } from "@/app/suggestions/types";
+import { Performance } from "@prisma/client";
 
 export const searchForArtistMatches = async (
   artists: Artist[],
