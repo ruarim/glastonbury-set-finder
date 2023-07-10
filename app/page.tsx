@@ -1,5 +1,5 @@
-import AuthSpotify from "@/app/authSpotify";
-import SpotifyLogo from "@/components/spotifyLogo";
+import AuthSpotify from "@/app/auth-spotify";
+import SpotifyLogo from "@/components/spotify-logo";
 import { description, title } from "./layout";
 
 export default function Home() {

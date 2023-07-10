@@ -1,0 +1,36 @@
+datasource db {
+  provider = "mysql"
+  url      = env("NEXT_PUBLIC_DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Performance {
+  id     Int     @id @default(autoincrement())
+  title  String  @db.VarChar(255)
+  stage  String
+  day    String
+  time   String
+  groups Group[]
+  Votes  Vote[]
+}
+
+model Group {
+  id           Int           @id @default(autoincrement())
+  title        String
+  created_at   DateTime      @default(now())
+  creator_id   String
+  performances Performance[]
+  Votes        Vote[]
+}
+
+model Vote {
+  id             Int         @id @default(autoincrement())
+  group          Group       @relation(fields: [group_id], references: [id])
+  performance    Performance @relation(fields: [performance_id], references: [id])
+  user_id        String
+  group_id       Int
+  performance_id Int
+}

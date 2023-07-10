@@ -28,8 +28,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/suggestions/api/webscraperTyped.ts",
-    "app/suggestions/api/suggest/utils/webscraper.js"
-  ],
+    "scripts/scrape-lineup.js"],
   "exclude": ["node_modules"]
 }
