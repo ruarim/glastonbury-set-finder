@@ -23,10 +23,10 @@ const Options = () => {
         leaveTo="transform opacity-0 scale-95"
       >
         <Menu.Items
-          className="absolute text-white right-0 w-28 origin-bottom-right divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute text-white right-0 w-28 origin-bottom-right divide-y divide-gray-100 rounded-md ring-1 ring-black ring-opacity-5 focus:outline-none"
           style={{ top: "auto", bottom: "calc(100% + 0.3rem)" }}
         >
-          <div className="space-y-0.5">
+          <div>
             <Option href="/disconnect">Disconnect</Option>
             <Option href="/groups">Groups</Option>
             <Option href="/">Suggest</Option>
@@ -47,7 +47,7 @@ const Option = ({ children, href }: { children: ReactNode; href: string }) => {
             active
               ? "text-gray-400 border-gray-400 "
               : "text-white border-gray-300 "
-          } border group flex w-full items-center rounded-md px-2 py-2 text-sm bg-black`}
+          } border group flex w-full items-center rounded-md px-2 py-2 text-sm bg-black transition-colors duration-300 ease-in-out`}
         >
           {children}
         </Link>
