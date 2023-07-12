@@ -14,7 +14,7 @@ export default function GroupsTableHeader({ userId }: { userId: string }) {
         action={(formData) => createGroup(userId, formData)}
         className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5"
       >
-        <Input name={"title"} className="col-span-3" />
+        <Input name={"title"} placeholder="Name" className="col-span-3" />
         <Button type="submit" className="h-10">
           <PlusIcon />
         </Button>
