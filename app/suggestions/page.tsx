@@ -43,9 +43,9 @@ function DisplaySuggestions() {
   if (isLoadingError || error)
     return (
       <div>
-        <span className="text-center font-bold">
+        <div className="text-center font-bold pb-1">
           Something went wrong. Please try again.
-        </span>
+        </div>
         <AuthSpotify />
       </div>
     );

@@ -3,7 +3,7 @@ import { getUserToken } from "./requests/getUserToken";
 import { getUsersSavedTracks } from "./requests/getUsersSavedTracks";
 import { extractArtistsFromTracks } from "./utils/extractArtistsFromTracks";
 import { searchForArtistMatches } from "./utils/searchForArtistMatches";
-import { prisma } from "@/utils/prisma";
+import { prisma } from "@/lib/prisma";
 
 export async function GET(request: Request) {
   const code = await getSpotifyCodeFromParams(request.url);

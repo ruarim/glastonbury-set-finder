@@ -22,8 +22,11 @@ model Group {
   title        String
   created_at   DateTime      @default(now())
   creator_id   String
+  //updated_at   DateTime      @updatedAt
   performances Performance[]
   Votes        Vote[]
+
+  //members?
 }
 
 model Vote {
