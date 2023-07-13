@@ -11,6 +11,8 @@
     "migrate-prod": "npx prisma migrate deploy"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.15",
+    "@heroicons/react": "^2.0.18",
     "@prisma/client": "4.16.2",
     "@tanstack/react-query": "^4.29.12",
     "@types/node": "20.2.5",
@@ -24,6 +26,7 @@
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
+    "next-auth": "^4.22.1",
     "postcss": "8.4.24",
     "qs": "^6.11.2",
     "react": "18.2.0",
@@ -33,6 +36,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
+    "@types/next-auth": "^3.15.0",
     "@types/qs": "^6.9.7",
     "prisma": "^4.16.2",
     "ts-node": "^10.9.1"
