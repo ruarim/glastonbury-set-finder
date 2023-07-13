@@ -4,7 +4,7 @@ import { Menu, Transition } from "@headlessui/react";
 import Link from "next/link";
 import { Fragment, ReactNode } from "react";
 
-const Options = () => {
+export default function Options() {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <Menu.Button className="pt-1 rounded-md bg-black bg-opacity-20 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
@@ -35,7 +35,7 @@ const Options = () => {
       </Transition>
     </Menu>
   );
-};
+}
 
 const Option = ({ children, href }: { children: ReactNode; href: string }) => {
   return (
@@ -76,5 +76,3 @@ const BarsThree = () => {
     </div>
   );
 };
-
-export default Options;

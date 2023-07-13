@@ -6,6 +6,11 @@ import GroupsTableHeader from "./table-header";
 import Separator from "@/components/seperator";
 import { getGroups } from "./actions";
 import GroupsTableContents from "./table-contents";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Glasto-Finder - Groups",
+};
 
 export default async function Groups() {
   const session = await getServerSession(options);
