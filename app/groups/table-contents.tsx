@@ -17,7 +17,7 @@ export default function GroupsTableContents({ groups }: { groups: Group[] }) {
 const GroupRow = ({ group }: { group: Group }) => {
   return (
     <div className="grid grid-cols-5 h-12">
-      <div className="col-span-1 flex items-center text-center">
+      <div className="col-span-1 flex items-center text-center justify-center">
         {group.title}
       </div>
       <div className="col-span-2 flex items-center text-center">
