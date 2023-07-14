@@ -1,7 +1,7 @@
 "use client";
 
 import { Transition } from "@headlessui/react";
-import Button from "./button";
+import Button from "../ui/button";
 import { signIn } from "next-auth/react";
 import { Fragment } from "react";
 

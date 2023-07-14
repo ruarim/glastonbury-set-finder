@@ -5,6 +5,7 @@ import { InputHTMLAttributes } from "react";
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
+
 export default function Input({ className, ...rest }: InputProps) {
   return (
     <input
