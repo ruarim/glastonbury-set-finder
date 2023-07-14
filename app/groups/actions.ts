@@ -16,10 +16,17 @@ export async function createGroup(creator_id: string, formData: FormData) {
   revalidatePath(`/groups`);
 }
 
-export async function getGroups(creator_id: string) {
-  const groups = await prisma.group.findMany({
-    where: { creator_id },
-  });
-
-  return groups;
+//add perfomance to group using prismas create perfomance
+export default async function addPerformanceToGroup(
+  group_id: string,
+  formData: FormData
+){
+  
 }
+
+//add vote to perfomance in group
+  //return ordered of perfomances in group from most to least voted for
+
+//add user to group?
+
+//edit group name?

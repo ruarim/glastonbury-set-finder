@@ -1,6 +1,6 @@
 import { Suggestion } from "@/app/suggestions/types";
-import Button from "../../components/button";
-import SpotifyLogo from "../../components/spotify-logo";
+import Button from "../../components/ui/button";
+import SpotifyLogo from "../../components/ui/spotify-logo";
 import { useArtist } from "@/hooks/useArtist";
 import { Skeleton } from "./loading/skeleton";
 
