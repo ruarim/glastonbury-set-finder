@@ -10,7 +10,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { prisma } from "@/lib/prisma";
-import AddPerformanceForm from "../forms/add-performance";
+import AddPerformanceForm from "./add-performance";
 
 export default async function Group({ params }: { params: { id: string } }) {
   const id = Number(params.id);
@@ -23,39 +23,41 @@ export default async function Group({ params }: { params: { id: string } }) {
         <h1 className="flex items-center col-span-2 md:col-span-3 text-3xl font-semibold">
           {group?.title}
         </h1>
-        <AddPerformanceForm />
+        <AddPerformanceForm groupId={id} />
       </div>
 
-      {performances.length > 0 ? (
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className="w-[100px]">Name</TableHead>
-              <TableHead>Stage</TableHead>
-              <TableHead>Time</TableHead>
-              <TableHead className="text-right">Vote</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {performances.map((performance) => (
-              <TableRow key={performance.id}>
-                <TableCell className="font-medium">
-                  {performance.title}
-                </TableCell>
-                <TableCell>{performance.stage}</TableCell>
-                <TableCell>{performance.time}</TableCell>
-                <TableCell className="text-right flex justify-end">
-                  <Button>
-                    <PlusIcon />
-                  </Button>
-                </TableCell>
+      <div className="max-h-96 overflow-y-auto w-full">
+        {performances.length > 0 ? (
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead className="w-[100px]">Name</TableHead>
+                <TableHead>Stage</TableHead>
+                <TableHead>Time</TableHead>
+                <TableHead className="text-right">Vote</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      ) : (
-        <div className="text-gray-400 text-center">No performances added</div>
-      )}
+            </TableHeader>
+            <TableBody>
+              {performances.map((performance) => (
+                <TableRow key={performance.id}>
+                  <TableCell className="font-medium">
+                    {performance.title}
+                  </TableCell>
+                  <TableCell>{performance.stage}</TableCell>
+                  <TableCell>{performance.time}</TableCell>
+                  <TableCell className="text-right flex justify-end">
+                    <Button>
+                      <PlusIcon />
+                    </Button>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        ) : (
+          <div className="text-gray-400 text-center">No performances added</div>
+        )}
+      </div>
     </Container>
   );
 }

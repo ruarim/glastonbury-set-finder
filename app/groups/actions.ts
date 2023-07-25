@@ -16,16 +16,40 @@ export async function createGroup(creator_id: string, formData: FormData) {
   revalidatePath(`/groups`);
 }
 
-//add perfomance to group using prismas create perfomance
-export default async function addPerformanceToGroup(
-  group_id: string,
-  formData: FormData
-){
-  
+export async function addPerformanceToGroup(
+  groupId: number,
+  performanceId: number
+) {
+  await prisma.group.update({
+    where: {
+      id: groupId,
+    },
+    data: {
+      performances: {
+        connect: {
+          id: performanceId,
+        },
+      },
+    },
+  });
+
+  revalidatePath(`/groups`);
+}
+
+export async function filterPerformanceByName(query: string) {
+  const perfomances = await prisma.performance.findMany({
+    where: {
+      title: {
+        contains: query,
+      },
+    },
+  });
+
+  return perfomances;
 }
 
 //add vote to perfomance in group
-  //return ordered of perfomances in group from most to least voted for
+//return ordered of perfomances in group from most to least voted for
 
 //add user to group?
 

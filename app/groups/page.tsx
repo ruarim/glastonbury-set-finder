@@ -23,7 +23,6 @@ export const metadata: Metadata = {
 export default async function Groups() {
   const session = await getServerSession(options);
 
-  //should be in layout?
   if (!session) return <Login />;
 
   const email = session?.user?.email as string;
@@ -38,42 +37,44 @@ export default async function Groups() {
           </h1>
           <CreateGroupForm userId={email} />
         </div>
-        {groups.length > 0 ? (
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px]">Name</TableHead>
-                <TableHead>Created at</TableHead>
-                <TableHead className="text-right">Details</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {groups.map((group) => (
-                <TableRow key={group.id}>
-                  <TableCell className="font-medium">{group.title}</TableCell>
-                  <TableCell>{group.created_at.toDateString()}</TableCell>
-                  <TableCell className="text-right flex justify-end">
-                    <Link
-                      href={`/groups/${group.id}`}
-                      className="border border-gray-200 hover:border-gray-400 hover:text-gray-400 rounded-full px-3 text-lg text-gray-200 transition-colors duration-300 ease-in-out text-center flex items-center"
-                    >
-                      <Arrow />
-                    </Link>
-                  </TableCell>
+        <div className="max-h-96 overflow-y-auto w-full">
+          {groups.length > 0 ? (
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="w-[100px]">Name</TableHead>
+                  <TableHead>Created at</TableHead>
+                  <TableHead className="text-right">Details</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        ) : (
-          <div className="text-gray-400 text-center">No groups created</div>
-        )}
+              </TableHeader>
+
+              <TableBody>
+                {groups.map((group) => (
+                  <TableRow key={group.id}>
+                    <TableCell className="font-medium">{group.title}</TableCell>
+                    <TableCell>{group.created_at.toDateString()}</TableCell>
+                    <TableCell className="text-right flex justify-end">
+                      <Link
+                        href={`/groups/${group.id}`}
+                        className="border border-gray-200 hover:border-gray-400 hover:text-gray-400 rounded-full px-3 text-lg text-gray-200 transition-colors duration-300 ease-in-out text-center flex items-center"
+                      >
+                        <Arrow />
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          ) : (
+            <div className="text-gray-400 text-center">No groups created</div>
+          )}
+        </div>
       </Container>
     )
   );
 }
 
 const getGroups = async (creator_id: string) => {
-  //add pagination
   return prisma.group.findMany({
     where: { creator_id },
   });

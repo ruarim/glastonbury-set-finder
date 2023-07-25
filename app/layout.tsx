@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div
-          className={`${inter.className} grid grid-cols-1  h-screen place-items-center px-3`}
+          className={`${inter.className} grid grid-cols-1 h-screen place-items-center px-3`}
         >
           {children}
         </div>
