@@ -41,12 +41,12 @@ export default function SearchInput({
 
   return (
     <div className={width}>
-      {/* @ts-ignore FIX! on change can only take string as arg*/ } 
+      {/* @ts-ignore FIX! on change can only take string as arg*/}
       <Combobox value={selected.title} onChange={setSelected}>
         <div className="relative mt-1">
           <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
             <Combobox.Input
-              className={`${className} w-full border-none py-2 pl-3 pr-3 text-sm leading-5 text-gray-900 focus:ring-0 truncate ...`}
+              className={`${className} w-full h-full border-none py-2 pl-3 pr-3 text-sm leading-5 text-gray-900 focus:ring-0 truncate ...`}
               placeholder={placeholder}
               onChange={(event) => setQuery(event.target.value)}
               name="performance-id"
