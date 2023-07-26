@@ -34,7 +34,7 @@ export default async function Group({ params }: { params: { id: string } }) {
                 <TableHead className="w-[100px]">Name</TableHead>
                 <TableHead>Stage</TableHead>
                 <TableHead>Time</TableHead>
-                <TableHead className="text-right">Vote</TableHead>
+                <TableHead className="text-center">Vote</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -45,7 +45,7 @@ export default async function Group({ params }: { params: { id: string } }) {
                   </TableCell>
                   <TableCell>{performance.stage}</TableCell>
                   <TableCell>{performance.time}</TableCell>
-                  <TableCell className="text-right flex justify-end">
+                  <TableCell className="text-right">
                     <Button>
                       <PlusIcon />
                     </Button>
