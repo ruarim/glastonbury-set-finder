@@ -2,7 +2,7 @@
 
 import Button from "../../../components/ui/button";
 import Input from "../../../components/ui/input";
-import PlusIcon from "../../../components/ui/plus-icon";
+import Plus from "../../../components/ui/icons/plus";
 import { createGroup } from "../actions";
 
 interface Props {
@@ -17,7 +17,7 @@ export default function CreateGroupForm({ userId }: Props) {
     >
       <Input name={"title"} placeholder="Name" className="col-span-3" />
       <Button type="submit" className="h-10">
-        <PlusIcon />
+        <Plus />
       </Button>
     </form>
   );

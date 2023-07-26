@@ -1,6 +1,4 @@
-import Button from "@/components/ui/button";
 import Container from "@/components/ui/container";
-import PlusIcon from "@/components/ui/plus-icon";
 import {
   Table,
   TableBody,
@@ -10,7 +8,8 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { prisma } from "@/lib/prisma";
-import AddPerformanceForm from "./add-performance";
+import AddPerformance from "./add-performance";
+import Votes from "./votes";
 
 export default async function Group({ params }: { params: { id: string } }) {
   const id = Number(params.id);
@@ -23,7 +22,7 @@ export default async function Group({ params }: { params: { id: string } }) {
         <h1 className="flex items-center col-span-2 md:col-span-3 text-3xl font-semibold">
           {group?.title}
         </h1>
-        <AddPerformanceForm groupId={id} />
+        <AddPerformance groupId={id} />
       </div>
 
       <div className="max-h-96 overflow-y-auto w-full">
@@ -45,10 +44,9 @@ export default async function Group({ params }: { params: { id: string } }) {
                   </TableCell>
                   <TableCell>{performance.stage}</TableCell>
                   <TableCell>{performance.time}</TableCell>
-                  <TableCell className="text-right">
-                    <Button>
-                      <PlusIcon />
-                    </Button>
+                  <TableCell className="text-center">
+                    {/* @ts-expect-error Async Server Component */}
+                    <Votes performanceId={performance.id} groupId={id} />
                   </TableCell>
                 </TableRow>
               ))}
