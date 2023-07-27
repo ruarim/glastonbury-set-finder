@@ -7,14 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { prisma } from "@/lib/prisma";
 import AddPerformance from "./add-performance";
 import Votes from "./votes";
+import { getGroup, getPerformancesSortedDesc } from "../actions";
 
 export default async function Group({ params }: { params: { id: string } }) {
   const id = Number(params.id);
   const group = await getGroup(id);
-  const performances = group?.performances || [];
+  const performances = await getPerformancesSortedDesc(id);
 
   return (
     <Container className="p-3 w-full md:w-[600px] space-y-2">
@@ -59,10 +59,3 @@ export default async function Group({ params }: { params: { id: string } }) {
     </Container>
   );
 }
-
-const getGroup = async (id: number) => {
-  return prisma.group.findUnique({
-    where: { id },
-    include: { performances: true },
-  });
-};
