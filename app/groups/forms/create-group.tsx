@@ -13,10 +13,10 @@ export default function CreateGroupForm({ userId }: Props) {
   return (
     <form
       action={(formData) => createGroup(userId, formData)}
-      className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5"
+      className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5 items-center"
     >
-      <Input name={"title"} placeholder="Name" className="col-span-3" />
-      <Button type="submit" className="h-10">
+      <Input name={"title"} placeholder="Name" className="col-span-3 h-8" />
+      <Button type="submit" className="h-8">
         <Plus />
       </Button>
     </form>

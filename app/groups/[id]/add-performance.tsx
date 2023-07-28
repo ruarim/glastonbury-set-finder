@@ -28,7 +28,7 @@ export default function AddPerformance({ groupId }: { groupId: number }) {
   };
 
   return (
-    <div className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5">
+    <div className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5 items-center">
       <PerformanceSearchInput
         placeholder="Performance name..."
         selected={selectedPerformance}
@@ -36,7 +36,7 @@ export default function AddPerformance({ groupId }: { groupId: number }) {
         filter={filterPerformanceByName}
         width="col-span-3"
       />
-      <Button onClick={handleAddPerformance} className="h-10 col-start-4">
+      <Button onClick={handleAddPerformance} className="h-8 col-start-4">
         <Plus />
       </Button>
     </div>

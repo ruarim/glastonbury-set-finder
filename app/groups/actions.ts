@@ -162,6 +162,13 @@ export async function getPerformancesSortedDesc(id: number) {
   return performancesWithVotes;
 }
 
-//add user to group?
+export async function editGroupTitle(group_id: number, formData: FormData) {
+  const title = formData.get("title") as string;
 
-//edit group name?
+  await prisma.group.update({
+    where: { id: group_id },
+    data: { title },
+  });
+
+  revalidatePath(`/groups/${group_id}`);
+}

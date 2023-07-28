@@ -10,17 +10,21 @@ import {
 import AddPerformance from "./add-performance";
 import Votes from "./votes";
 import { getGroup, getPerformancesSortedDesc } from "../actions";
+import EditGroupTitleForm from "../forms/edit-title";
 
 export default async function Group({ params }: { params: { id: string } }) {
   const id = Number(params.id);
   const group = await getGroup(id);
+
+  if (!group) return <div className="text-lg">Group not found</div>;
+
   const performances = await getPerformancesSortedDesc(id);
 
   return (
     <Container className="p-3 w-full md:w-[600px] space-y-2">
-      <div className="grid grid-cols-5">
-        <h1 className="flex items-center col-span-2 md:col-span-3 text-3xl font-semibold">
-          {group?.title}
+      <div className="md:grid grid-cols-5 space-y-1 ">
+        <h1 className="flex items-center col-span-2 md:col-span-3 text-3xl font-semibold gap-1">
+          <EditGroupTitleForm groupId={id} title={group?.title} />
         </h1>
         <AddPerformance groupId={id} />
       </div>
