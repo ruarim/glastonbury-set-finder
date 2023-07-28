@@ -22,7 +22,7 @@ export default function EditGroupTitleForm({ groupId, title }: Props) {
   return isEditing ? (
     <form
       action={(formData) => handleEdit(formData)}
-      className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5 items-center"
+      className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5 items-center mt-1 w-full md:w-2/3"
     >
       <Input
         name={"title"}
@@ -36,7 +36,7 @@ export default function EditGroupTitleForm({ groupId, title }: Props) {
     </form>
   ) : (
     <button
-      className="flex items-center gap-1"
+      className="flex items-center gap-1 text-3xl"
       onClick={() => setIsEditing(true)}
     >
       {title}
