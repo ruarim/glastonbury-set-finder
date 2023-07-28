@@ -113,12 +113,8 @@ export async function getGroup(id: number) {
 
 type PerformanceWithVotesCount = Performance & { votesCount: number };
 
-export async function getPerformancesSortedDesc(id: number) {
-  const group = await getGroup(id);
-
-  if (!group || !group.performances) return [];
-
-  const performanceIds = group.performances.map(
+async function getPerformancesWithVotes(performances: Performance[]) {
+  const performanceIds = performances.map(
     (performance: Performance) => performance.id
   );
 
@@ -135,14 +131,26 @@ export async function getPerformancesSortedDesc(id: number) {
     performanceVotesMap[voteCount.performance_id] = voteCount._count;
   });
 
-  const performancesWithVotes: PerformanceWithVotesCount[] =
-    group.performances.map((performance) => {
+  const performancesWithVotes: PerformanceWithVotesCount[] = performances.map(
+    (performance) => {
       const performanceWithVotes: PerformanceWithVotesCount = {
         ...performance,
         votesCount: performanceVotesMap[performance.id] || 0,
       };
       return performanceWithVotes;
-    });
+    }
+  );
+
+  return performancesWithVotes;
+}
+
+export async function getPerformancesSortedDesc(id: number) {
+  const group = await getGroup(id);
+  const performances = group?.performances;
+
+  if (!performances) return [];
+
+  const performancesWithVotes = await getPerformancesWithVotes(performances);
 
   performancesWithVotes.sort(
     (a: PerformanceWithVotesCount, b: PerformanceWithVotesCount) => {
