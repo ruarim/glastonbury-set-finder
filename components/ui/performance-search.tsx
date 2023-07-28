@@ -5,7 +5,7 @@ import { Combobox, Transition } from "@headlessui/react";
 import { useDebounce } from "@/hooks/useDebounce";
 import { Performance } from "@prisma/client";
 
-interface SearchInputProps {
+interface PerformanceSearchInputProps {
   placeholder: string;
   selected: Performance;
   setSelected: (value: Performance) => void;
@@ -14,14 +14,14 @@ interface SearchInputProps {
   width?: string;
 }
 
-export default function SearchInput({
+export default function PerformanceSearchInput({
   placeholder,
   selected,
   setSelected,
   filter,
   className,
   width,
-}: SearchInputProps) {
+}: PerformanceSearchInputProps) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<Performance[]>([]);
   const debounceQuery = useDebounce(query, 300);
@@ -29,7 +29,6 @@ export default function SearchInput({
 
   useEffect(() => {
     if (debounceQuery.length === 0) setResults([]);
-
     if (debounceQuery.length > 2) {
       startTransition(async () => {
         const results = await filter(debounceQuery);

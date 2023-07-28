@@ -3,29 +3,33 @@
 import { useState, useTransition } from "react";
 import Button from "../../../components/ui/button";
 import Plus from "../../../components/ui/icons/plus";
-import SearchInput from "../../../components/ui/performance-search";
+import PerformanceSearchInput from "../../../components/ui/performance-search";
 import { addPerformanceToGroup, filterPerformanceByName } from "../actions";
 import { Performance } from "@prisma/client";
 
+const DEFAULT_PERFORMANCE = {
+  id: 0,
+  title: "",
+  stage: "",
+  day: "",
+  time: "",
+};
+
 export default function AddPerformance({ groupId }: { groupId: number }) {
   const [isPending, startTransition] = useTransition();
-  const [selectedPerformance, setSelectedPerformance] = useState<Performance>({
-    id: 0,
-    title: "",
-    stage: "",
-    day: "",
-    time: "",
-  });
+  const [selectedPerformance, setSelectedPerformance] =
+    useState<Performance>(DEFAULT_PERFORMANCE);
 
   const handleAddPerformance = () => {
     startTransition(() =>
       addPerformanceToGroup(groupId, selectedPerformance.id)
     );
+    setSelectedPerformance(DEFAULT_PERFORMANCE);
   };
 
   return (
     <div className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5">
-      <SearchInput
+      <PerformanceSearchInput
         placeholder="Performance name..."
         selected={selectedPerformance}
         setSelected={setSelectedPerformance}
