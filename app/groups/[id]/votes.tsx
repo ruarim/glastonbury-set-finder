@@ -17,12 +17,12 @@ export default async function Votes({ groupId, performanceId }: VotesProps) {
     <div className="flex justify-between items-center">
       <DisplayVotes votes={votes} />
       {userVote ? (
-        <RemoveVote voteId={userVote.id} />
+        <RemoveVote voteId={userVote.id} groupId={groupId} />
       ) : (
         <CastVote
           groupId={groupId}
           performanceId={performanceId}
-          user_id={email}
+          userId={email}
         />
       )}
     </div>

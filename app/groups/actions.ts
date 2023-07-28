@@ -5,6 +5,7 @@ import { getServerSession } from "next-auth";
 import { revalidatePath } from "next/cache";
 import { options } from "../api/auth/options";
 import { Performance } from "@prisma/client";
+import { redirect } from "next/navigation";
 
 export async function getUser() {
   const session = await getServerSession(options);
@@ -15,14 +16,14 @@ export async function getUser() {
 export async function createGroup(creator_id: string, formData: FormData) {
   const title = formData.get("title") as string;
 
-  await prisma.group.create({
+  const group = await prisma.group.create({
     data: {
       title,
       creator_id,
     },
   });
 
-  revalidatePath(`/groups`);
+  redirect(`/groups/${group.id}`);
 }
 
 export async function addPerformanceToGroup(
@@ -42,7 +43,7 @@ export async function addPerformanceToGroup(
     },
   });
 
-  revalidatePath(`/groups`);
+  revalidatePath(`/groups/${groupId}`);
 }
 
 export async function filterPerformanceByName(query: string) {
@@ -74,12 +75,12 @@ export async function voteForPerformance(
     },
   });
 
-  revalidatePath(`/groups`);
+  revalidatePath(`/groups${group_id}`);
 }
 
-export async function removePerformanceVote(id: number) {
+export async function removePerformanceVote(id: number, group_id: number) {
   await prisma.vote.delete({ where: { id } });
-  revalidatePath(`/groups`);
+  revalidatePath(`/groups${group_id}`);
 }
 
 async function getVote(
