@@ -44,9 +44,9 @@ export default function PerformanceSearchInput({
         onChange={setSelected}
       >
         <div className="relative">
-          <div className="relative w-full cursor-default overflow-hidden rounded-lg bg-white text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-teal-300 sm:text-sm">
+          <div className="relative w-full cursor-default overflow-hidden bg-black rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm">
             <Combobox.Input
-              className={`${className} w-full h-full border-none py-2 pl-3 pr-3 text-sm leading-5 text-gray-900 focus:ring-0 truncate ...`}
+              className={`${className} h-8 rounded-lg bg-gray-600 border border-gray-600 text-white leading-5 w-full border-none text-sm pl-3 px-2 truncate ...`}
               placeholder={placeholder}
               onChange={(event) => setQuery(event.target.value)}
               name="performance-id"
@@ -61,7 +61,7 @@ export default function PerformanceSearchInput({
           >
             <Combobox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {results.length === 0 && query !== "" ? (
-                <div className="relative cursor-default select-none py-2 px-4 text-gray-700">
+                <div className="relative cursor-default select-none py-1 px-4 text-gray-700">
                   Nothing found.
                 </div>
               ) : isPending ? (
@@ -71,7 +71,7 @@ export default function PerformanceSearchInput({
                   <Combobox.Option
                     key={`result-${i}`}
                     className={({ active }) =>
-                      `relative cursor-default select-none py-2 px-4 ${
+                      `relative cursor-default select-none py-1 px-4 ${
                         active ? "bg-gray-600 text-white" : "text-gray-900"
                       }`
                     }
@@ -84,7 +84,7 @@ export default function PerformanceSearchInput({
                             selected ? "font-medium" : "font-normal"
                           }`}
                         >
-                          {result.title}
+                          {result.title + " - " + result.stage}
                         </span>
                       </>
                     )}

@@ -20,7 +20,7 @@ export default async function Groups() {
 
   return (
     user && (
-      <Container className="p-3 w-full md:w-[600px] space-y-2">
+      <Container className="p-3 w-full md:w-[600px] space-y-3">
         <div className="grid grid-cols-5">
           <h1 className="flex items-center col-span-2 md:col-span-3 text-3xl font-semibold">
             Groups

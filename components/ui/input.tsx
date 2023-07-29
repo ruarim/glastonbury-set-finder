@@ -1,16 +1,20 @@
-"use client";
-
-import { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, forwardRef } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   className?: string;
 }
 
-export default function Input({ className, ...rest }: InputProps) {
-  return (
-    <input
-      className={`rounded-lg leading-5 w-full border-none text-sm pl-3 px-2 border border-white text-black ${className}`}
-      {...rest}
-    />
-  );
-}
+const Input = forwardRef<HTMLInputElement, InputProps>(
+  ({ className, ...rest }, ref) => {
+
+    return (
+      <input
+        ref={ref}
+        className={`rounded-lg bg-gray-600 border text-white leading-5 w-full border-none text-sm pl-3 px-2 focus:outline-none ${className}`}
+        {...rest}
+      />
+    );
+  }
+);
+
+export default Input;

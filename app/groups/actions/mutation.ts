@@ -11,8 +11,7 @@ export async function voteForPerformance(
   user_id: string
 ) {
   const vote = await getVote(group_id, performance_id, user_id);
-
-  if (vote) await prisma.vote.delete({ where: { id: vote.id } });
+  if (vote) return;
 
   await prisma.vote.create({
     data: {
