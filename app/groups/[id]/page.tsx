@@ -9,9 +9,9 @@ import {
 } from "@/components/ui/table";
 import AddPerformance from "./add-performance";
 import Votes from "./votes";
-import { getGroup, getPerformancesSortedDesc } from "../actions";
 import EditGroupTitleForm from "../forms/edit-title";
 import ShareGroup from "./share";
+import { getGroup, getPerformancesSortedDesc } from "../actions/fetch";
 
 export default async function Group({ params }: { params: { id: string } }) {
   const id = Number(params.id);

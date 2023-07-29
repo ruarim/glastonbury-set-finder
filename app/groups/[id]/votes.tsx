@@ -1,4 +1,4 @@
-import { getUser, getVotes } from "../actions";
+import { getUser, getVotes } from "../actions/fetch";
 import { CastVote, RemoveVote } from "./voting";
 import { Vote } from "@prisma/client";
 

@@ -11,7 +11,7 @@ import {
 import Link from "next/link";
 import Arrow from "@/components/ui/icons/arrow";
 import CreateGroupForm from "./forms/create-group";
-import { getUser } from "./actions";
+import { getGroups, getUser } from "./actions/fetch";
 
 export default async function Groups() {
   const user = await getUser();
@@ -66,9 +66,3 @@ export default async function Groups() {
     )
   );
 }
-
-const getGroups = async (creator_id: string) => {
-  return prisma.group.findMany({
-    where: { creator_id },
-  });
-};

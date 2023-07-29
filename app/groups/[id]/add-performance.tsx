@@ -4,8 +4,9 @@ import { useState, useTransition } from "react";
 import Button from "../../../components/ui/button";
 import Plus from "../../../components/ui/icons/plus";
 import PerformanceSearchInput from "../../../components/ui/performance-search";
-import { addPerformanceToGroup, filterPerformanceByName } from "../actions";
 import { Performance } from "@prisma/client";
+import { addPerformanceToGroup } from "../actions/mutation";
+import { filterPerformanceByName } from "../actions/fetch";
 
 const DEFAULT_PERFORMANCE = {
   id: 0,

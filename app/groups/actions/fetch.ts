@@ -1,49 +1,14 @@
 "use server";
 
-import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
-import { revalidatePath } from "next/cache";
-import { options } from "../api/auth/options";
 import { Performance } from "@prisma/client";
-import { redirect } from "next/navigation";
+import { prisma } from "@/lib/prisma";
+import { options } from "@/app/api/auth/options";
 
 export async function getUser() {
   const session = await getServerSession(options);
   const user = session?.user;
   return user;
-}
-
-export async function createGroup(creator_id: string, formData: FormData) {
-  const title = formData.get("title") as string;
-
-  const group = await prisma.group.create({
-    data: {
-      title,
-      creator_id,
-    },
-  });
-
-  redirect(`/groups/${group.id}`);
-}
-
-export async function addPerformanceToGroup(
-  groupId: number,
-  performanceId: number
-) {
-  await prisma.group.update({
-    where: {
-      id: groupId,
-    },
-    data: {
-      performances: {
-        connect: {
-          id: performanceId,
-        },
-      },
-    },
-  });
-
-  revalidatePath(`/groups/${groupId}`);
 }
 
 export async function filterPerformanceByName(query: string) {
@@ -58,32 +23,7 @@ export async function filterPerformanceByName(query: string) {
   return perfomances;
 }
 
-export async function voteForPerformance(
-  group_id: number,
-  performance_id: number,
-  user_id: string
-) {
-  const vote = await getVote(group_id, performance_id, user_id);
-
-  if (vote) await prisma.vote.delete({ where: { id: vote.id } });
-
-  await prisma.vote.create({
-    data: {
-      group_id,
-      performance_id,
-      user_id,
-    },
-  });
-
-  revalidatePath(`/groups${group_id}`);
-}
-
-export async function removePerformanceVote(id: number, group_id: number) {
-  await prisma.vote.delete({ where: { id } });
-  revalidatePath(`/groups${group_id}`);
-}
-
-async function getVote(
+export async function getVote(
   group_id: number,
   performance_id: number,
   user_id: string
@@ -109,6 +49,12 @@ export async function getGroup(id: number) {
   return prisma.group.findUnique({
     where: { id },
     include: { performances: true },
+  });
+}
+
+export async function getGroups(creator_id: string) {
+  return prisma.group.findMany({
+    where: { creator_id },
   });
 }
 
@@ -160,15 +106,4 @@ export async function getPerformancesSortedDesc(id: number) {
   );
 
   return performancesWithVotes;
-}
-
-export async function editGroupTitle(group_id: number, formData: FormData) {
-  const title = formData.get("title") as string;
-
-  await prisma.group.update({
-    where: { id: group_id },
-    data: { title },
-  });
-
-  revalidatePath(`/groups/${group_id}`);
 }

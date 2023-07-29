@@ -3,7 +3,7 @@
 import Button from "../../../components/ui/button";
 import Input from "../../../components/ui/input";
 import Plus from "../../../components/ui/icons/plus";
-import { createGroup } from "../actions";
+import { createGroup } from "../actions/mutation";
 
 interface Props {
   userId: string;

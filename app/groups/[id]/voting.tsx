@@ -2,9 +2,9 @@
 
 import { VotesProps } from "./votes";
 import { useTransition } from "react";
-import { removePerformanceVote, voteForPerformance } from "../actions";
 import Check from "@/components/ui/icons/check";
 import Cross from "@/components/ui/icons/cross";
+import { removePerformanceVote, voteForPerformance } from "../actions/mutation";
 
 interface CastVoteProps extends VotesProps {
   userId: string;
