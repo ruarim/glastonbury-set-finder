@@ -1,9 +1,5 @@
-import { getServerSession } from "next-auth/next";
 import { prisma } from "@/lib/prisma";
-import { options } from "../api/auth/options";
-import Login from "@/components/auth/login";
 import Container from "@/components/ui/container";
-import { Metadata } from "next";
 import {
   Table,
   TableBody,
@@ -17,13 +13,8 @@ import Arrow from "@/components/ui/icons/arrow";
 import CreateGroupForm from "./forms/create-group";
 import { getUser } from "./actions";
 
-export const metadata: Metadata = {
-  title: "Glasto-Finder - Groups",
-};
-
 export default async function Groups() {
   const user = await getUser();
-
   const email = user?.email as string;
   const groups = await getGroups(email);
 
@@ -36,7 +27,7 @@ export default async function Groups() {
           </h1>
           <CreateGroupForm userId={email} />
         </div>
-        <div className="max-h-96 overflow-y-auto w-full">
+        <div className="max-h-96 overflow-y-auto w-full border border-gray-600 rounded-lg">
           {groups.length > 0 ? (
             <Table>
               <TableHeader>

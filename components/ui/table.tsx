@@ -1,5 +1,10 @@
 import clsx from "clsx";
-import { HTMLAttributes, TdHTMLAttributes, ThHTMLAttributes, forwardRef } from "react";
+import {
+  HTMLAttributes,
+  TdHTMLAttributes,
+  ThHTMLAttributes,
+  forwardRef,
+} from "react";
 
 const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElement>>(
   ({ className, ...props }, ref) => (
@@ -18,7 +23,11 @@ const TableHeader = forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => (
-  <thead ref={ref} className={clsx("[&_tr]:border-b [&_tr]:border-gray-600", className)} {...props} />
+  <thead
+    ref={ref}
+    className={clsx("[&_tr]:border-b [&_tr]:border-gray-600", className)}
+    {...props}
+  />
 ));
 TableHeader.displayName = "TableHeader";
 
