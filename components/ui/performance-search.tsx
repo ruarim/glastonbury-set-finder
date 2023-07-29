@@ -65,7 +65,7 @@ export default function PerformanceSearchInput({
                   Nothing found.
                 </div>
               ) : isPending ? (
-                <>Loading...</>
+                <div className="text-gray-600 px-4 py-2">Loading...</div>
               ) : (
                 results.map((result, i) => (
                   <Combobox.Option
