@@ -14,7 +14,7 @@ model Performance {
   day    String
   time   String
   groups Group[]
-  Votes  Vote[]
+  votes  Vote[]
 }
 
 model Group {
@@ -24,7 +24,7 @@ model Group {
   creator_id   String
   //updated_at   DateTime      @updatedAt
   performances Performance[]
-  Votes        Vote[]
+  votes        Vote[]
 
   //members?
 }

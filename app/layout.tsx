@@ -1,7 +1,7 @@
 import Footer from "./footer";
 import "./globals.css";
-import { Inter } from "next/font/google";
 import { Metadata } from "next";
+import CenteredLayout from "@/components/layouts/centered";
 
 export const title = "Glasto-Finder";
 export const description =
@@ -28,8 +28,6 @@ export const metadata: Metadata = {
   },
 };
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function RootLayout({
   children,
 }: {
@@ -38,11 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div
-          className={`${inter.className} grid grid-cols-1  h-screen place-items-center px-3`}
-        >
-          {children}
-        </div>
+        <CenteredLayout>{children}</CenteredLayout>
         <Footer />
       </body>
     </html>

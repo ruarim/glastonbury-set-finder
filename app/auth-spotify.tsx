@@ -1,5 +1,6 @@
 "use client";
-import Button from "../components/button";
+
+import Button from "../components/ui/button";
 import Link from "next/link";
 
 const redirectUri = process.env.NEXT_PUBLIC_REDIRECT_URI;
