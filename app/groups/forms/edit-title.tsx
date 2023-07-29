@@ -6,12 +6,12 @@ import Input from "../../../components/ui/input";
 import { useState } from "react";
 import { editGroupTitle } from "../actions/mutation";
 
-interface Props {
+interface EditGroupTitleFormProps {
   groupId: number;
   title: string;
 }
 
-export default function EditGroupTitleForm({ groupId, title }: Props) {
+export default function EditGroupTitleForm({ groupId, title }: EditGroupTitleFormProps) {
   const [isEditing, setIsEditing] = useState(false);
 
   const handleEdit = async (formData: FormData) => {

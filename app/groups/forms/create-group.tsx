@@ -5,11 +5,11 @@ import Input from "../../../components/ui/input";
 import Plus from "../../../components/ui/icons/plus";
 import { createGroup } from "../actions/mutation";
 
-interface Props {
+interface CreateGroupFormProps {
   userId: string;
 }
 
-export default function CreateGroupForm({ userId }: Props) {
+export default function CreateGroupForm({ userId }: CreateGroupFormProps) {
   return (
     <form
       action={(formData) => createGroup(userId, formData)}
