@@ -51,7 +51,7 @@ export default async function Group({ params }: { params: { id: string } }) {
                   <TableCell>{performance.stage}</TableCell>
                   <TableCell>{performance.time}</TableCell>
                   <TableCell className="text-center">
-                    {/* @ts-expect-error Async Server Component */}
+                    {/* @ts-ignore Async Server Component - Problem with experimental server components*/}
                     <Votes performanceId={performance.id} groupId={id} />
                   </TableCell>
                 </TableRow>
