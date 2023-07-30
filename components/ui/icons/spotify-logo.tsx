@@ -1,4 +1,4 @@
-const SpotifyLogo = () => {
+export default function SpotifyLogo() {
   return (
     <div>
       <svg
@@ -13,5 +13,4 @@ const SpotifyLogo = () => {
       </svg>
     </div>
   );
-};
-export default SpotifyLogo;
+}
