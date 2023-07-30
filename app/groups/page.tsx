@@ -1,4 +1,3 @@
-import { prisma } from "@/lib/prisma";
 import Container from "@/components/ui/container";
 import {
   Table,

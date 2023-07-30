@@ -21,12 +21,12 @@ export async function voteForPerformance(
     },
   });
 
-  revalidatePath(`/groups${group_id}`);
+  revalidatePath(`/groups/${group_id}`);
 }
 
 export async function removePerformanceVote(id: number, group_id: number) {
   await prisma.vote.delete({ where: { id } });
-  revalidatePath(`/groups${group_id}`);
+  revalidatePath(`/groups/${group_id}`);
 }
 
 export async function createGroup(creator_id: string, formData: FormData) {

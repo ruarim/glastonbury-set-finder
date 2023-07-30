@@ -46,16 +46,18 @@ export async function getVotes(group_id: number, performance_id: number) {
 }
 
 export async function getGroup(id: number) {
-  return prisma.group.findUnique({
+  const group = prisma.group.findUnique({
     where: { id },
     include: { performances: true },
   });
+  return group;
 }
 
 export async function getGroups(creator_id: string) {
-  return prisma.group.findMany({
+  const groups= prisma.group.findMany({
     where: { creator_id },
   });
+  return groups;
 }
 
 type PerformanceWithVotesCount = Performance & { votesCount: number };
