@@ -14,7 +14,7 @@ export default async function Votes({ groupId, performanceId }: VotesProps) {
   const userVote = votes?.find((vote) => vote.user_id === email);
 
   return (
-    <div className="flex justify-between items-center">
+    <div className="md:flex justify-center items-center">
       <DisplayVotes votes={votes} />
       {userVote ? (
         <RemoveVote voteId={userVote.id} groupId={groupId} />
@@ -31,8 +31,8 @@ export default async function Votes({ groupId, performanceId }: VotesProps) {
 
 function DisplayVotes({ votes }: { votes: Vote[] }) {
   return (
-    <div className="p-2 flex space-x-2 items-center justify-between">
-      <div className="text-sm text-gray-400 flex-col">
+    <div className="p-2">
+      <div className="text-sm text-gray-400">
         <div>{votes.length}</div>
         <div>Votes</div>
       </div>

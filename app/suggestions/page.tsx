@@ -75,7 +75,7 @@ function DisplaySuggestions() {
 
   return (
     <main className="grid grid-cols-1 place-items-center">
-      <div className="space-y-5 py-3 w-full">
+      <div className="space-y-5 pt-3 pb-5 w-full">
         {suggestions && <Results suggestions={suggestions} />}
       </div>
     </main>

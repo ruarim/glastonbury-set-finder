@@ -5,6 +5,46 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { getVote } from "./fetch";
 
+export async function createGroup(creator_id: string, formData: FormData) {
+  const title = formData.get("title") as string;
+
+  const group = await prisma.group.create({
+    data: {
+      title,
+      creator_id,
+    },
+  });
+
+  revalidatePath(`/groups`);
+  redirect(`/groups/${group.id}`);
+}
+
+export async function addPerformanceToGroup(
+  group_id: number,
+  performance_id: number
+) {
+  const perfomance = await prisma.performance.findUnique({
+    where: { id: performance_id },
+  });
+
+  if (!perfomance) return;
+
+  await prisma.group.update({
+    where: {
+      id: group_id,
+    },
+    data: {
+      performances: {
+        connect: {
+          id: performance_id,
+        },
+      },
+    },
+  });
+
+  revalidatePath(`/groups/${group_id}`);
+}
+
 export async function voteForPerformance(
   group_id: number,
   performance_id: number,
@@ -27,39 +67,6 @@ export async function voteForPerformance(
 export async function removePerformanceVote(id: number, group_id: number) {
   await prisma.vote.delete({ where: { id } });
   revalidatePath(`/groups/${group_id}`);
-}
-
-export async function createGroup(creator_id: string, formData: FormData) {
-  const title = formData.get("title") as string;
-
-  const group = await prisma.group.create({
-    data: {
-      title,
-      creator_id,
-    },
-  });
-
-  redirect(`/groups/${group.id}`);
-}
-
-export async function addPerformanceToGroup(
-  groupId: number,
-  performanceId: number
-) {
-  await prisma.group.update({
-    where: {
-      id: groupId,
-    },
-    data: {
-      performances: {
-        connect: {
-          id: performanceId,
-        },
-      },
-    },
-  });
-
-  revalidatePath(`/groups/${groupId}`);
 }
 
 export async function editGroupTitle(group_id: number, formData: FormData) {

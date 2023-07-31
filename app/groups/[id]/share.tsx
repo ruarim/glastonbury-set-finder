@@ -17,9 +17,11 @@ export default function ShareGroup({ groupId }: { groupId: number }) {
   return (
     <div className="flex justify-center">
       <Toaster position="top-center" reverseOrder={false} />
-      <Button onClick={handleShare} className="h-10 w-40 text-sm">
-        Share this group
-      </Button>
+      <div className="w-44">
+        <Button onClick={handleShare} className="h-10 text-sm">
+          Share this group
+        </Button>
+      </div>
     </div>
   );
 }

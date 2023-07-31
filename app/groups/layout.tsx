@@ -16,5 +16,5 @@ export default async function GroupsLayout({
 
   if (!session) return <Login />;
 
-  return <CenteredLayout>{children}</CenteredLayout>;
+  return <div className="w-full md:w-[600px]">{children}</div>;
 }
