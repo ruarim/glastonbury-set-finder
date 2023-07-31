@@ -4,8 +4,6 @@ import { description, title } from "./layout";
 import Container from "@/components/ui/container";
 
 export default function Home() {
-  console.log("SECRET: ", process.env.NEXTAUTH_SECRET);
-
   return (
     <main className="space-y-3 md:w-[600px]">
       <Container className="p-3">
