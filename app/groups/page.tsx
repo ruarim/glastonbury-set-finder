@@ -36,7 +36,6 @@ export default async function Groups() {
                   <TableHead className="text-right">Details</TableHead>
                 </TableRow>
               </TableHeader>
-
               <TableBody>
                 {groups.map((group) => (
                   <TableRow key={group.id}>
