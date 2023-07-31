@@ -4,6 +4,12 @@ import { description, title } from "./layout";
 import Container from "@/components/ui/container";
 
 export default function Home() {
+  console.error(
+    "AUTH",
+    process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID,
+    process.env.NEXTAUTH_SECRET,
+    process.env.NEXT_PRIVATE_SPOTIFY_CLIENT_SECRET
+  );
   return (
     <main className="space-y-3 md:w-[600px]">
       <Container className="p-3">
