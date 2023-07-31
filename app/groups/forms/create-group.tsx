@@ -10,9 +10,14 @@ interface CreateGroupFormProps {
 }
 
 export default function CreateGroupForm({ userId }: CreateGroupFormProps) {
+  const handleCreateGroup = async (formData: FormData) => {
+    const group = await createGroup(userId, formData);
+    window.location.href = `/groups/${group.id}`;
+  };
+
   return (
     <form
-      action={(formData) => createGroup(userId, formData)}
+      action={handleCreateGroup}
       className="grid grid-cols-4 col-span-3 md:col-span-2 space-x-0.5 items-center"
     >
       <Input name={"title"} placeholder="Name" className="col-span-3 h-8" />

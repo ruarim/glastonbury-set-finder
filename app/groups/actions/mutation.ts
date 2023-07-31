@@ -2,7 +2,6 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 import { getVote } from "./fetch";
 
 export async function createGroup(creator_id: string, formData: FormData) {
@@ -16,7 +15,7 @@ export async function createGroup(creator_id: string, formData: FormData) {
   });
 
   revalidatePath(`/groups`);
-  redirect(`/groups/${group.id}`);
+  return group;
 }
 
 export async function addPerformanceToGroup(
