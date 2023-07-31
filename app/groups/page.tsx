@@ -57,7 +57,9 @@ export default async function Groups() {
               </TableBody>
             </Table>
           ) : (
-            <div className="text-gray-400 text-center">No groups created</div>
+            <div className="text-gray-400 text-center py-5">
+              No groups created
+            </div>
           )}
         </div>
       </Container>

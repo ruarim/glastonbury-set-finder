@@ -43,7 +43,7 @@ function DisplaySuggestions() {
   if (isLoadingError || error)
     return (
       <div>
-        <div className="text-center font-bold pb-1">
+        <div className="text-center font-bold pb-2">
           Something went wrong. Please try again.
         </div>
         <AuthSpotify />
