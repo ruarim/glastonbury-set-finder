@@ -9,9 +9,6 @@ const responseType = "code";
 const spotifyAuthUrl = `https://accounts.spotify.com/en/authorize?response_type=${responseType}&client_id=${clientId}&scope=user-library-read&redirect_uri=${redirectUri}&show_dialog=false`;
 
 const AuthSpotify = () => {
-  console.log("SECRET: ", process.env.NEXTAUTH_SECRET);
-  console.log("CLIENT_ID: ", clientId);
-
   return (
     <Link href={spotifyAuthUrl}>
       <Button>Login with Spotify</Button>
