@@ -38,7 +38,9 @@ export default async function Group({ params }: { params: { id: string } }) {
               <TableRow>
                 <TableHead className="w-[100px]">Name</TableHead>
                 <TableHead>Stage/Time</TableHead>
-                <TableHead className="text-center">Vote</TableHead>
+                <TableHead className="flex justify-center md:justify-end items-center">
+                  <div className="md:w-16 md:flex justify-center">Vote</div>
+                </TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>

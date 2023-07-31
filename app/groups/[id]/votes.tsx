@@ -14,7 +14,7 @@ export default async function Votes({ groupId, performanceId }: VotesProps) {
   const userVote = votes?.find((vote) => vote.user_id === email);
 
   return (
-    <div className="md:flex justify-center items-center">
+    <div className="md:flex justify-end items-center">
       <DisplayVotes votes={votes} />
       {userVote ? (
         <RemoveVote voteId={userVote.id} groupId={groupId} />
