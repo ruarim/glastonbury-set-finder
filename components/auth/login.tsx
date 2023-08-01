@@ -22,7 +22,11 @@ export default function Login() {
         </div>
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="py-4 sm:rounded-lg">
-            <Button onClick={() => signIn("google")} type="submit">
+            <Button
+              onClick={() => signIn("google")}
+              type="submit"
+              className="px-5"
+            >
               Google account
             </Button>
           </div>
