@@ -10,7 +10,7 @@ import {
 import Link from "next/link";
 import Arrow from "@/components/ui/icons/arrow";
 import CreateGroupForm from "./forms/create-group";
-import { getGroups, getUser } from "./actions/fetch";
+import { getGroups, getUser } from "./queries/fetch";
 
 export default async function Groups() {
   const user = await getUser();

@@ -2,7 +2,7 @@ import { Suggestion } from "@/app/suggestions/types";
 import Button from "../../components/ui/button";
 import SpotifyLogo from "../../components/ui/icons/spotify-logo";
 import { Skeleton } from "./loading/skeleton";
-import { fetchArtist } from "./requests/get-artist";
+import { fetchArtist } from "./queries/get-artist";
 import { Suspense } from "react";
 
 export default async function ResultCard({

@@ -5,8 +5,8 @@ import Button from "../../../components/ui/button";
 import Plus from "../../../components/ui/icons/plus";
 import PerformanceSearchInput from "../../../components/ui/performance-search";
 import { Performance } from "@prisma/client";
-import { addPerformanceToGroup } from "../actions/mutation";
-import { filterPerformanceByName } from "../actions/fetch";
+import { addPerformanceToGroup } from "../queries/mutation";
+import { filterPerformanceByName } from "../queries/fetch";
 
 const DEFAULT_PERFORMANCE = {
   id: 0,

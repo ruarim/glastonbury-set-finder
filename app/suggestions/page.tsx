@@ -1,5 +1,5 @@
 import ResultCard from "@/app/suggestions/result-card";
-import { fetchSuggestions } from "./requests/get-suggestions";
+import { fetchSuggestions } from "./queries/get-suggestions";
 import Container from "@/components/ui/container";
 
 interface Params {
