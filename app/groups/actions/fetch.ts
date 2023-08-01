@@ -62,16 +62,20 @@ export async function getGroups(creator_id: string) {
 
 type PerformanceWithVotesCount = Performance & { votesCount: number };
 
-async function getPerformancesWithVotes(performances: Performance[]) {
+async function getPerformancesWithVotes(
+  performances: Performance[],
+  group_id: number
+) {
   const performanceIds = performances.map(
     (performance: Performance) => performance.id
   );
 
   const performanceVotes = await prisma.vote.groupBy({
-    by: ["performance_id", "group_id"],
+    by: ["performance_id"],
     _count: true,
     where: {
       performance_id: { in: performanceIds },
+      group_id,
     },
   });
 
@@ -99,7 +103,10 @@ export async function getPerformancesSortedDesc(id: number) {
 
   if (!performances) return [];
 
-  const performancesWithVotes = await getPerformancesWithVotes(performances);
+  const performancesWithVotes = await getPerformancesWithVotes(
+    performances,
+    group.id
+  );
 
   performancesWithVotes.sort(
     (a: PerformanceWithVotesCount, b: PerformanceWithVotesCount) => {
