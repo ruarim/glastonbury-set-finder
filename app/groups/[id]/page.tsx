@@ -12,6 +12,7 @@ import Votes from "./votes";
 import EditGroupTitleForm from "../forms/edit-title";
 import ShareGroup from "./share";
 import { getGroup, getPerformancesSortedDesc } from "../actions/fetch";
+import { Performance } from "@prisma/client";
 
 export default async function Group({ params }: { params: { id: string } }) {
   const id = Number(params.id);
@@ -36,7 +37,7 @@ export default async function Group({ params }: { params: { id: string } }) {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead className="w-[100px]">Name</TableHead>
+                <TableHead className="w-[100px]">Artist</TableHead>
                 <TableHead>Stage/Time</TableHead>
                 <TableHead className="flex justify-center md:justify-end items-center">
                   <div className="md:w-16 md:flex justify-center">Vote</div>
@@ -45,20 +46,11 @@ export default async function Group({ params }: { params: { id: string } }) {
             </TableHeader>
             <TableBody>
               {performances.map((performance) => (
-                <TableRow key={performance.id}>
-                  <TableCell className="font-medium">
-                    {performance.title}
-                  </TableCell>
-                  <TableCell>
-                    <>{performance.stage}</>
-                    <br></br>
-                    <>{performance.time}</>
-                  </TableCell>
-                  <TableCell className="text-center">
-                    {/* @ts-ignore Async Server Component - TS Bug with experimental server components*/}
-                    <Votes performanceId={performance.id} groupId={id} />
-                  </TableCell>
-                </TableRow>
+                <PerformanceRow
+                  performance={performance}
+                  groupId={id}
+                  key={performance.id}
+                />
               ))}
             </TableBody>
           </Table>
@@ -72,3 +64,25 @@ export default async function Group({ params }: { params: { id: string } }) {
     </Container>
   );
 }
+
+const PerformanceRow = ({
+  performance,
+  groupId,
+}: {
+  performance: Performance;
+  groupId: number;
+}) => {
+  return (
+    <TableRow key={performance.id}>
+      <TableCell className="font-medium">{performance.title}</TableCell>
+      <TableCell>
+        <>{performance.stage}</>
+        <br></br>
+        <>{performance.time}</>
+      </TableCell>
+      <TableCell className="text-center">
+        <Votes performanceId={performance.id} groupId={groupId} />
+      </TableCell>
+    </TableRow>
+  );
+};

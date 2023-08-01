@@ -25,13 +25,13 @@ export async function GET(request: Request) {
 
   const glastonburyPerformances = await prisma.performance.findMany();
 
-  const matches = await searchForArtistMatches(
+  const suggestions = await searchForArtistMatches(
     savedArtists,
     glastonburyPerformances
   );
-  if (matches.length === 0) return NextResponse.json({ matches: [] });
+  if (suggestions.length === 0) return NextResponse.json({ suggestions: [] });
 
-  return NextResponse.json({ matches });
+  return NextResponse.json({ suggestions });
 }
 
 const getSpotifyCodeFromParams = async (url: string) => {
