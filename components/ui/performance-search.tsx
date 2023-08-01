@@ -35,7 +35,7 @@ export default function PerformanceSearchInput({
         setResults(results);
       });
     }
-  }, [debounceQuery]);
+  }, [debounceQuery, filter]);
 
   return (
     <div className={width}>
@@ -46,7 +46,7 @@ export default function PerformanceSearchInput({
         <div className="relative">
           <div className="relative w-full cursor-default overflow-hidden bg-black rounded-lg text-left shadow-md focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-offset-2 sm:text-sm">
             <Combobox.Input
-              className={`${className} h-8 rounded-lg bg-gray-600 border border-gray-600 text-white leading-5 w-full border-none text-sm pl-3 px-2 truncate ...`}
+              className={`${className} h-8 rounded-lg bg-gray-600 border border-gray-600 text-white text-base leading-5 w-full border-none pl-3 px-2 truncate ...`}
               placeholder={placeholder}
               onChange={(event) => setQuery(event.target.value)}
               name="performance-id"
@@ -65,7 +65,7 @@ export default function PerformanceSearchInput({
                   Nothing found.
                 </div>
               ) : isPending ? (
-                <div className="text-gray-600 px-4 py-2">Loading...</div>
+                <div className="text-gray-600 px-4 py-1">Loading...</div>
               ) : (
                 results.map((result, i) => (
                   <Combobox.Option
