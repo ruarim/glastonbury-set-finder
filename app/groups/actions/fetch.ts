@@ -54,7 +54,7 @@ export async function getGroup(id: number) {
 }
 
 export async function getGroups(creator_id: string) {
-  const groups= prisma.group.findMany({
+  const groups = prisma.group.findMany({
     where: { creator_id },
   });
   return groups;
@@ -68,7 +68,7 @@ async function getPerformancesWithVotes(performances: Performance[]) {
   );
 
   const performanceVotes = await prisma.vote.groupBy({
-    by: ["performance_id"],
+    by: ["performance_id", "group_id"],
     _count: true,
     where: {
       performance_id: { in: performanceIds },
