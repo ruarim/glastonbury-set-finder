@@ -27,7 +27,7 @@ export default function Options() {
           style={{ top: "auto", bottom: "calc(100% + 0.3rem)" }}
         >
           <div>
-            <Option href="/disconnect">Disconnect</Option>
+            <Option href="/settings">Settings</Option>
             <Option href="/groups">Groups</Option>
             <Option href="/">Suggest</Option>
           </div>
