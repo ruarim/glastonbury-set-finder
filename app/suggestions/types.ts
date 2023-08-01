@@ -38,7 +38,5 @@ export type Suggestion = {
 };
 
 export type SuggestionsResponse = {
-  data: {
-    matches: Suggestion[];
-  };
+  suggestions: Suggestion[];
 };

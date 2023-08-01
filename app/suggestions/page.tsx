@@ -1,54 +1,25 @@
-"use client";
-import axios from "axios";
-import { useSearchParams } from "next/navigation";
-import {
-  QueryClient,
-  QueryClientProvider,
-  useQuery,
-} from "@tanstack/react-query";
-import { SuggestionsResponse } from "./types";
-import AuthSpotify from "@/app/auth-spotify";
-import { Results } from "@/app/suggestions/results";
-import { ScaleLoader } from "react-spinners";
+import { ResultCard } from "@/app/suggestions/result-card";
+import { fetchSuggestions } from "./requests/get-suggestions";
+import Container from "@/components/ui/container";
 
-export default function Suggestions() {
-  const queryClient = new QueryClient();
-  return (
-    <QueryClientProvider client={queryClient}>
-      <DisplaySuggestions />
-    </QueryClientProvider>
-  );
+interface Params {
+  searchParams: { code: string | undefined; error: string | undefined };
 }
 
-function DisplaySuggestions() {
-  const params = useSearchParams();
-  const code = params.get("code");
-  const error = params.get("error");
+export default async function Suggestions({ searchParams }: Params) {
+  const { code, error } = searchParams;
 
-  const fetchSuggestions = async () => {
-    return await axios.get(`/suggestions/api/suggest?code=${code}`);
-  };
-
-  const {
-    data: suggestionsResponse,
-    isLoading,
-    isLoadingError,
-  } = useQuery<any, any, SuggestionsResponse>(
-    ["suggestions"],
-    fetchSuggestions
-  );
-
-  const suggestions = suggestionsResponse?.data.matches;
-
-  if (isLoadingError || error)
+  if (error || !code) {
     return (
-      <div>
-        <div className="text-center font-bold pb-2">
-          Something went wrong. Please try again.
-        </div>
-        <AuthSpotify />
-      </div>
+      <Container className="p-3">
+        <span className="text-center font-bold">Spotify Error</span>
+        <>⚠️</>
+      </Container>
     );
+  }
+
+  const suggestionsResponse = await fetchSuggestions(code);
+  const { suggestions } = suggestionsResponse;
 
   if (suggestions && suggestions.length === 0) {
     return (
@@ -58,25 +29,19 @@ function DisplaySuggestions() {
     );
   }
 
-  if (isLoading)
-    return (
-      <div>
-        <div className="flex justify-center pb-4">
-          <ScaleLoader
-            loading={isLoading}
-            color="white"
-            height={18}
-            width={12}
-          />
-        </div>
-        <span className="text-center font-bold">Analysing liked tracks...</span>
-      </div>
-    );
-
   return (
     <main className="grid grid-cols-1 place-items-center">
       <div className="space-y-5 pt-3 pb-5 w-full">
-        {suggestions && <Results suggestions={suggestions} />}
+        {suggestions && (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 grid-rows-auto gap-3 md:mx-24 pb-9">
+            {suggestions.map((suggestion) => (
+              <ResultCard
+                suggestion={suggestion}
+                key={suggestion.performance.time + suggestion.performance.stage}
+              />
+            ))}
+          </div>
+        )}
       </div>
     </main>
   );

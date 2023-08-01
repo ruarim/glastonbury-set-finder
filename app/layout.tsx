@@ -2,12 +2,7 @@ import Footer from "./footer";
 import "./globals.css";
 import { Metadata } from "next";
 import CenteredLayout from "@/components/layouts/centered";
-
-export const title = "Glasto-Finder";
-export const description =
-  "Receive personalised Glastonbury performance recommendations based on your Spotify liked tracks.";
-const url = `${process.env.NEXT_PUBLIC_BASE_URL}`;
-const image = `${url}/glasto-finder-logo.png`;
+import { image, title, description, url } from "./metadata";
 
 export const metadata: Metadata = {
   title,
@@ -22,7 +17,7 @@ export const metadata: Metadata = {
         url: image,
         width: 1200,
         height: 630,
-        alt: "Glasto Finder",
+        alt: title,
       },
     ],
   },
