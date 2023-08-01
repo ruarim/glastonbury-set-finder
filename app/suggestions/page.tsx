@@ -1,4 +1,4 @@
-import { ResultCard } from "@/app/suggestions/result-card";
+import ResultCard from "@/app/suggestions/result-card";
 import { fetchSuggestions } from "./requests/get-suggestions";
 import Container from "@/components/ui/container";
 

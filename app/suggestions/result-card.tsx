@@ -5,11 +5,11 @@ import { Skeleton } from "./loading/skeleton";
 import { fetchArtist } from "./requests/get-artist";
 import { Suspense } from "react";
 
-export const ResultCard = async ({
+export default async function ResultCard({
   suggestion,
 }: {
   suggestion: Suggestion;
-}) => {
+}) {
   return (
     <div
       className="flex flex-col border border-gray-500 rounded-lg p-4"
@@ -49,7 +49,7 @@ export const ResultCard = async ({
       </div>
     </div>
   );
-};
+}
 
 const ArtistImage = async ({ id }: { id: any }) => {
   const artistReponse = await fetchArtist(id);
