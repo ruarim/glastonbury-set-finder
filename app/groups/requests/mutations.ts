@@ -2,7 +2,7 @@
 
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
-import { getVote } from "./fetch";
+import { getVote } from "./queries";
 
 export async function createGroup(creator_id: string, formData: FormData) {
   const title = formData.get("title") as string;

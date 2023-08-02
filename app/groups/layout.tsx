@@ -1,7 +1,7 @@
 import Login from "@/components/auth/login";
 import CenteredLayout from "@/components/layouts/centered";
 import { Metadata } from "next";
-import { getUser } from "./queries/fetch";
+import { getUser } from "./requests/queries";
 
 export const metadata: Metadata = {
   title: "Glasto-Finder - Groups",

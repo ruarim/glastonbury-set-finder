@@ -4,7 +4,7 @@ import Edit from "@/components/ui/icons/edit";
 import Button from "../../../components/ui/button";
 import Input from "../../../components/ui/input";
 import { useState } from "react";
-import { editGroupTitle } from "../queries/mutation";
+import { editGroupTitle } from "../requests/mutations";
 
 interface EditGroupTitleFormProps {
   groupId: number;

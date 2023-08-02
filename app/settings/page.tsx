@@ -1,5 +1,5 @@
 import Logout from "@/components/auth/logout";
-import { getUser } from "../groups/queries/fetch";
+import { getUser } from "../groups/requests/queries";
 
 export default async function Settings() {
   const manageAccessUrl = "https://www.spotify.com/uk/account/apps/";

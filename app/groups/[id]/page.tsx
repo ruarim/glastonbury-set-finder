@@ -11,7 +11,7 @@ import AddPerformance from "./add-performance";
 import Votes from "./votes";
 import EditGroupTitleForm from "../forms/edit-title";
 import ShareGroup from "./share";
-import { getGroup, getPerformancesSortedDesc } from "../queries/fetch";
+import { getGroup, getPerformancesSortedDesc } from "../requests/queries";
 import { Performance } from "@prisma/client";
 
 export default async function Group({ params }: { params: { id: string } }) {
