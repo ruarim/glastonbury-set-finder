@@ -1,10 +1,15 @@
 # Glasto-Finder
 
-[![Glasto-Finder in action.](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/02fa31ab-1621-420b-aafd-d63f50b1bf5e)](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/b9fe7c80-a75a-4d39-b7f7-b2ec222fcefa)
+## Suggestions
+[![Glasto-Finder Suggestions in action.](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/02fa31ab-1621-420b-aafd-d63f50b1bf5e)](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/b9fe7c80-a75a-4d39-b7f7-b2ec222fcefa)
 
 **Please note that the results may not be entirely accurate. The current approach offers more options by not restricting the results to exact name matches.**
 
 ![Screenshot 2023-06-09 at 16 29 15](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/095e6965-bb8e-414f-85bc-45383945bf80)
+
+## Groups
+[![Glasto-Finder Groups in action.](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/bed07d62-e8ad-4ced-ba78-0e94d4b5e093)](https://github.com/ruarim/glastonbury-set-finder/assets/48099261/766657ea-b086-494d-abcb-91cb0534bae2)
+
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
