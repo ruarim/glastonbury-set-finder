@@ -1,7 +1,7 @@
 import { Suggestion } from "@/app/suggestions/types";
 import Button from "../../components/ui/button";
 import SpotifyLogo from "../../components/ui/icons/spotify-logo";
-import { Skeleton } from "./loading/skeleton";
+import { Skeleton } from "../../components/ui/loading/skeleton";
 import { fetchArtist } from "./queries/get-artist";
 import { Suspense } from "react";
 
