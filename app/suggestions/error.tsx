@@ -1,6 +1,6 @@
 "use client";
 
-import AuthSpotify from "../auth-spotify";
+import AuthSpotify from "../get-suggestions";
 
 export default function SuggestionsError() {
   return (

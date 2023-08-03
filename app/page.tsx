@@ -1,4 +1,4 @@
-import AuthSpotify from "@/app/auth-spotify";
+import AuthSpotify from "@/app/get-suggestions";
 import SpotifyLogo from "@/components/ui/icons/spotify-logo";
 import { description, title } from "./metadata";
 import Container from "@/components/ui/container";
@@ -15,10 +15,8 @@ export default function Home() {
               </div>
               {title}
             </h1>
-
             <p className="text-center text-lg">{description}</p>
           </div>
-
           <AuthSpotify />
         </div>
       </Container>
