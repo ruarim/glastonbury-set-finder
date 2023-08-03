@@ -25,11 +25,11 @@ export default function Login() {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <div className="py-4 sm:rounded-lg">
             <Button
-              onClick={() => signIn("google")}
+              onClick={() => signIn("spotify")}
               type="submit"
               className="px-5"
             >
-              Google account
+              Spotify account
             </Button>
           </div>
         </div>

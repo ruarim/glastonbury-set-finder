@@ -1,13 +1,13 @@
 import { AuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
+import SpotifyProvider from "next-auth/providers/spotify";
 
-const clientId = `${process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID}`;
-const clientSecret = `${process.env.NEXT_PRIVATE_GOOGLE_CLIENT_SECRET}`;
+const clientId = `${process.env.NEXT_PUBLIC_SPOTIFY_CLIENT_ID}`;
+const clientSecret = `${process.env.NEXT_PRIVATE_SPOTIFY_CLIENT_SECRET}`;
 const secret = `${process.env.NEXTAUTH_SECRET}`;
 
 export const options: AuthOptions = {
   providers: [
-    GoogleProvider({
+    SpotifyProvider({
       clientId,
       clientSecret,
     }),
