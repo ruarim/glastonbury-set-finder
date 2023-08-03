@@ -7,11 +7,13 @@ import { Fragment, ReactNode } from "react";
 export default function Options() {
   return (
     <Menu as="div" className="relative inline-block text-left">
-      <Menu.Button className="pt-1 rounded-md bg-black bg-opacity-20 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-        <div className="border border-gray-200 hover:border-gray-400 hover:text-gray-400 rounded-full px-3 text-lg text-gray-200 transition-colors duration-300 ease-in-out text-center">
-          <BarsThree />
-        </div>
-      </Menu.Button>
+      <div className="pt-1">
+        <Menu.Button className="rounded-md bg-black bg-opacity-20 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+          <div className="border border-gray-200 hover:border-gray-400 hover:text-gray-400 rounded-full px-3 text-lg text-gray-200 transition-colors duration-300 ease-in-out text-center">
+            <BarsThree />
+          </div>
+        </Menu.Button>
+      </div>
 
       <Transition
         as={Fragment}
