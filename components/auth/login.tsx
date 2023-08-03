@@ -4,6 +4,7 @@ import { Transition } from "@headlessui/react";
 import Button from "../ui/button";
 import { signIn } from "next-auth/react";
 import { Fragment } from "react";
+import SpotifyLogo from "../ui/icons/spotify-logo";
 
 export default function Login() {
   return (
@@ -27,9 +28,9 @@ export default function Login() {
             <Button
               onClick={() => signIn("spotify")}
               type="submit"
-              className="px-5"
+              className="px-5 space-x-1"
             >
-              Spotify account
+              <span>Spotify account</span> <SpotifyLogo />
             </Button>
           </div>
         </div>
