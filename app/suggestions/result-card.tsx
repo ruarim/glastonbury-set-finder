@@ -17,11 +17,11 @@ export default async function ResultCard({
     >
       <div className="flex flex-col justify-between h-full space-y-1">
         <div className="space-y-2">
-          <Suspense
+          {/* <Suspense
             fallback={<Skeleton className="h-[320px] bg-gray-700/50" />}
           >
             <ArtistImage id={suggestion.foundFrom.id} />
-          </Suspense>
+          </Suspense> */}
           <div>
             <h2 className="font-bold">{suggestion.performance.title}</h2>
             <div>{suggestion.performance.stage}</div>
