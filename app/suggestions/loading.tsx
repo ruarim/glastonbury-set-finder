@@ -1,10 +1,12 @@
-import Scale from "@/components/ui/loading/scale-loader";
+"use client";
+
+import { ScaleLoader } from "react-spinners";
 
 export default function SuggestionsLoading() {
   return (
     <div>
       <div className="flex justify-center pb-4">
-        <Scale />
+        <ScaleLoader loading={true} color="white" height={18} width={12} />
       </div>
       <span className="text-center font-bold">Analysing liked tracks...</span>
     </div>
