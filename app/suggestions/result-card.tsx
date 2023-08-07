@@ -60,6 +60,7 @@ const ArtistImage = async ({ id }: { id: any }) => {
     artist?.images.length > 0 && (
       <img
         className="h-[320px] w-full object-cover rounded-sm"
+        alt={`${artist?.name} Artist Image}`}
         src={artist?.images[0].url}
       />
     )
