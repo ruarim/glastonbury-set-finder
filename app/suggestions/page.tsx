@@ -1,6 +1,6 @@
 import ResultCard from "@/app/suggestions/result-card";
 import { fetchSuggestions } from "./queries/get-suggestions";
-import Container from "@/components/ui/container";
+import AuthSpotify from "../auth-spotify";
 
 interface Params {
   searchParams: { code: string | undefined; error: string | undefined };
@@ -11,10 +11,12 @@ export default async function Suggestions({ searchParams }: Params) {
 
   if (error || !code) {
     return (
-      <Container className="p-3">
-        <span className="text-center font-bold">Spotify Error</span>
-        <>⚠️</>
-      </Container>
+      <div className="flex justify-center">
+        <div>
+          <div className="text-center font-bold pb-1">Spotify Error⚠️</div>
+          <AuthSpotify />
+        </div>
+      </div>
     );
   }
 
