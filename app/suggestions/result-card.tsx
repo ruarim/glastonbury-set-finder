@@ -16,13 +16,13 @@ export default async function ResultCard({
       key={suggestion.foundFrom.id}
     >
       <div className="flex flex-col justify-between h-full space-y-1">
-        <div className="space-y-2">
+        <div>
           <Suspense
             fallback={<Skeleton className="h-[320px] bg-gray-700/50" />}
           >
             <ArtistImage id={suggestion.foundFrom.id} />
           </Suspense>
-          <div>
+          <div className="pt-2">
             <h2 className="font-bold">{suggestion.performance.title}</h2>
             <div>{suggestion.performance.stage}</div>
             <div>{suggestion.performance.day}</div>
@@ -53,7 +53,14 @@ export default async function ResultCard({
 
 const ArtistImage = async ({ id }: { id: any }) => {
   const artistReponse = await fetchArtist(id);
-  const { artist } = artistReponse;
+  const artist = artistReponse?.artist;
+
+  if (!artist || (artist?.images && artist?.images.length == 0))
+    return (
+      <div className="h-[320px] bg-gray-800 items-center flex justify-center font-bold rounded-sm">
+        Artist image not found⚠️
+      </div>
+    );
 
   return (
     artist?.images &&

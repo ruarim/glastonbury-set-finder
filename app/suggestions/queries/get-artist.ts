@@ -18,7 +18,7 @@ export const fetchArtist = async (artistId: string) => {
     const data = await response.json();
     return data as ArtistResponse;
   } catch (error) {
-    if (error instanceof Error) return new Error("Error: " + error.message);
-    return new Error("Unkown error fetching artist data");
+    if (error instanceof Error) console.log("Error: " + error.message);
+    console.log("Unkown error fetching artist data");
   }
 };
