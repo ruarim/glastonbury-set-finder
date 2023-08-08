@@ -1,6 +1,8 @@
 import ResultCard from "@/app/suggestions/result-card";
 import { fetchSuggestions } from "./queries/get-suggestions";
 import AuthSpotify from "../auth-spotify";
+import { Suspense } from "react";
+import SuggestionsLoading from "./scale-loader";
 
 interface Params {
   searchParams: { code: string | undefined; error: string | undefined };
@@ -20,6 +22,14 @@ export default async function Suggestions({ searchParams }: Params) {
     );
   }
 
+  return (
+    <Suspense fallback={<SuggestionsLoading />}>
+      <Results code={code} />
+    </Suspense>
+  );
+}
+
+const Results = async ({ code }: { code: string }) => {
   const suggestionsResponse = await fetchSuggestions(code);
   const { suggestions } = suggestionsResponse;
 
@@ -47,4 +57,4 @@ export default async function Suggestions({ searchParams }: Params) {
       </div>
     </main>
   );
-}
+};
