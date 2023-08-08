@@ -24,13 +24,17 @@ export default function Login() {
           </div>
         </div>
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <div className="py-4 sm:rounded-lg">
+          <div className="py-2 sm:rounded-lg">
             <Button
               onClick={() => signIn("spotify")}
-              type="submit"
               className="px-5 space-x-1"
             >
               <span>Spotify account</span> <SpotifyLogo />
+            </Button>
+          </div>
+          <div className="py-2 sm:rounded-lg">
+            <Button onClick={() => signIn("google")} className="px-5 space-x-1">
+              <span>Google account</span>
             </Button>
           </div>
         </div>
