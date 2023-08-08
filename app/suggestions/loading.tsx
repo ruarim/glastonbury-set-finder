@@ -1,6 +1,8 @@
+"use client";
+
 import { ScaleLoader } from "react-spinners";
 
-export default function Loading() {
+export default function SuggestionsLoading() {
   return (
     <div>
       <div className="flex justify-center pb-4">
