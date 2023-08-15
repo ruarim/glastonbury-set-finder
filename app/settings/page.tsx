@@ -6,7 +6,7 @@ export default async function Settings() {
   const session = await getUser();
 
   return (
-    <div className="border border-gray-500 rounded-lg p-8 flex flex-col justify-between space-y-6">
+    <div className="border border-gray-500 rounded-lg p-8 flex flex-col justify-between space-y-6 px-12">
       <div className="grid grid-cols-1 place-items-center space-y-4">
         <div className="space-y-2 rounded-lg">
           <div className="text-2xl font-bold">Disconnect from this app:</div>
