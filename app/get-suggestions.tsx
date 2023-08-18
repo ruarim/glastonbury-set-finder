@@ -10,8 +10,8 @@ const spotifyAuthUrl = `https://accounts.spotify.com/en/authorize?response_type=
 
 const AuthSpotify = () => {
   return (
-    <Link href={spotifyAuthUrl}>
-      <Button>Login with Spotify</Button>
+    <Link className="w-full md:w-3/4" href={spotifyAuthUrl}>
+      <Button>Get Suggestions with Spotify</Button>
     </Link>
   );
 };
